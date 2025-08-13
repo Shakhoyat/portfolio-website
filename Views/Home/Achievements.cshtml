@@ -201,13 +201,13 @@
                 <div class="achievement-card traditional-achievement bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-6"
                      data-category="Traditional" 
                      data-type="Academic" 
-                     data-date="@achievement.Date.ToString("yyyy-MM-dd")"
+                     data-date="@achievement.DateReceived.ToString("yyyy-MM-dd")"
                      data-rank="0">
                     
                     <div class="flex items-center mb-4">
                         <i class="fas fa-award text-purple-500 text-2xl mr-3"></i>
                         <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
-                            @achievement.Category
+                            @achievement.Type
                         </span>
                     </div>
                     
@@ -216,15 +216,23 @@
                     
                     <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                         <i class="fas fa-calendar mr-2"></i>
-                        @achievement.Date.ToString("MMMM yyyy")
+                        @achievement.DateReceived.ToString("MMMM yyyy")
                     </div>
                     
-                    @if (!string.IsNullOrEmpty(achievement.Institution))
+                    @if (!string.IsNullOrEmpty(achievement.Organization))
                     {
                         <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
                             <i class="fas fa-building mr-2"></i>
-                            @achievement.Institution
+                            @achievement.Organization
                         </div>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(achievement.CertificateUrl))
+                    {
+                        <a href="@achievement.CertificateUrl" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium mt-3">
+                            <i class="fas fa-certificate mr-2"></i>
+                            View Certificate
+                        </a>
                     }
                 </div>
             }
@@ -241,11 +249,37 @@
 
 <style>
     .filter-btn {
-        @apply px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #d1d5db;
+        color: #374151;
+        background-color: white;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    
+    .dark .filter-btn {
+        border-color: #4b5563;
+        color: #d1d5db;
+        background-color: #1f2937;
+    }
+    
+    .filter-btn:hover {
+        background-color: #f9fafb;
+    }
+    
+    .dark .filter-btn:hover {
+        background-color: #374151;
     }
     
     .filter-btn.active {
-        @apply bg-blue-600 text-white border-blue-600 hover:bg-blue-700;
+        background-color: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+    
+    .filter-btn.active:hover {
+        background-color: #1d4ed8;
     }
     
     .achievement-card {
