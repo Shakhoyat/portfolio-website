@@ -86,8 +86,29 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Achievements()
     {
-        var achievements = await _portfolioService.GetAchievementsAsync();
-        return View(achievements);
+        // Get all Kaggle achievements from database
+        var kaggleAchievements = await _context.KaggleAchievements
+            .Where(a => a.IsActive)
+            .OrderByDescending(a => a.AchievedDate)
+            .ToListAsync();
+
+        // Get traditional achievements from portfolio service
+        var traditionalAchievements = await _portfolioService.GetAchievementsAsync();
+
+        var viewModel = new AchievementsPageViewModel
+        {
+            KaggleAchievements = kaggleAchievements,
+            TraditionalAchievements = traditionalAchievements,
+            TotalKaggleAchievements = kaggleAchievements.Count,
+            GoldMedals = kaggleAchievements.Count(a => a.Medal == "Gold"),
+            SilverMedals = kaggleAchievements.Count(a => a.Medal == "Silver"),
+            BronzeMedals = kaggleAchievements.Count(a => a.Medal == "Bronze"),
+            CompetitionAchievements = kaggleAchievements.Count(a => a.Type == "Competition"),
+            DatasetAchievements = kaggleAchievements.Count(a => a.Type == "Dataset"),
+            NotebookAchievements = kaggleAchievements.Count(a => a.Type == "Notebook")
+        };
+
+        return View(viewModel);
     }
 
     public async Task<IActionResult> Datasets()

@@ -51,6 +51,21 @@ namespace PortfolioWebsite.Models
         public string SelectedType { get; set; }
     }
 
+    public class AchievementsPageViewModel
+    {
+        public IEnumerable<KaggleAchievement> KaggleAchievements { get; set; } = new List<KaggleAchievement>();
+        public IEnumerable<Achievement> TraditionalAchievements { get; set; } = new List<Achievement>();
+        public int TotalKaggleAchievements { get; set; }
+        public int GoldMedals { get; set; }
+        public int SilverMedals { get; set; }
+        public int BronzeMedals { get; set; }
+        public int CompetitionAchievements { get; set; }
+        public int DatasetAchievements { get; set; }
+        public int NotebookAchievements { get; set; }
+        public string SelectedCategory { get; set; } = "All";
+        public string SelectedType { get; set; } = "All";
+    }
+
     public class AdminDashboardViewModel
     {
         public int TotalProjects { get; set; }

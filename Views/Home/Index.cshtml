@@ -161,15 +161,106 @@
                 </p>
             </div>
             
+            <!-- Kaggle Achievements -->
+            @if (Model.KaggleAchievements?.Any() == true)
+            {
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-8 mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="heading-lg text-gray-900 dark:text-white mb-2">
+                                <i class="fas fa-medal text-yellow-500 mr-2"></i>
+                                Kaggle Achievements
+                            </h3>
+                            <p class="text-body">Latest accomplishments from competitive data science</p>
+                        </div>
+                        <a href="https://www.kaggle.com/shakhoyatshujon" target="_blank" class="btn-modern">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            View Profile
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach (var achievement in Model.KaggleAchievements.Where(a => a.IsFeatured).Take(6))
+                        {
+                            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center">
+                                        @if (achievement.Medal == "Gold")
+                                        {
+                                            <i class="fas fa-medal text-yellow-500 text-xl mr-2"></i>
+                                        }
+                                        else if (achievement.Medal == "Silver")
+                                        {
+                                            <i class="fas fa-medal text-gray-400 text-xl mr-2"></i>
+                                        }
+                                        else if (achievement.Medal == "Bronze")
+                                        {
+                                            <i class="fas fa-medal text-orange-600 text-xl mr-2"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-trophy text-blue-500 text-xl mr-2"></i>
+                                        }
+                                        <span class="text-sm font-medium text-gray-600 dark:text-gray-400">@achievement.Type</span>
+                                    </div>
+                                    @if (achievement.Rank.HasValue)
+                                    {
+                                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded text-xs font-semibold">
+                                            Rank #@achievement.Rank
+                                        </span>
+                                    }
+                                </div>
+                                
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">@achievement.Title</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">@achievement.Description</p>
+                                
+                                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                                    <span>@achievement.AchievedDate.ToString("MMM yyyy")</span>
+                                    @if (achievement.TotalParticipants.HasValue)
+                                    {
+                                        <span>@achievement.TotalParticipants participants</span>
+                                    }
+                                </div>
+                                
+                                @if (!string.IsNullOrEmpty(achievement.ExternalUrl))
+                                {
+                                    <a href="@achievement.ExternalUrl" target="_blank" class="mt-3 inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        View Details
+                                    </a>
+                                }
+                            </div>
+                        }
+                    </div>
+                    
+                    @if (Model.KaggleAchievements.Count() > 6)
+                    {
+                        <div class="text-center mt-6">
+                            <a href="@Url.Action("Achievements", "Home")" class="btn-outline">
+                                <i class="fas fa-plus mr-2"></i>
+                                View All @Model.KaggleAchievements.Count() Achievements
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Kaggle Participation -->
+                <!-- Kaggle Summary -->
                 <div class="card p-6 text-center">
                     <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-trophy text-blue-600 dark:text-blue-400 text-2xl"></i>
                     </div>
                     <h3 class="heading-md text-gray-900 dark:text-white mb-2">Kaggle Competitor</h3>
                     <p class="text-body mb-3">
-                        Active participant in Kaggle machine learning competitions, working on real-world data science challenges and collaborative learning.
+                        @if (Model.KaggleAchievements?.Any() == true)
+                        {
+                            @($"{Model.KaggleAchievements.Count()} achievements across competitions, datasets, and notebooks")
+                        }
+                        else
+                        {
+                            @("Active participant in Kaggle machine learning competitions, working on real-world data science challenges and collaborative learning.")
+                        }
                     </p>
                     <a href="https://www.kaggle.com/shakhoyatshujon" target="_blank" class="btn-outline text-sm">
                         <i class="fas fa-external-link-alt mr-1"></i>
