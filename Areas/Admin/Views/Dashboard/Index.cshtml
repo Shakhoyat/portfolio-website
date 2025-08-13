@@ -1,0 +1,192 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "_Layout";
+}
+
+<!-- Dashboard Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-blue-100 dark:bg-blue-900">
+                <i class="fas fa-project-diagram text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <div class="ml-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Total Projects</p>
+                <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.TotalProjects</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-green-100 dark:bg-green-900">
+                <i class="fas fa-book text-green-600 dark:text-green-400"></i>
+            </div>
+            <div class="ml-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Publications</p>
+                <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.TotalPublications</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-yellow-100 dark:bg-yellow-900">
+                <i class="fas fa-trophy text-yellow-600 dark:text-yellow-400"></i>
+            </div>
+            <div class="ml-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Achievements</p>
+                <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.TotalAchievements</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-red-100 dark:bg-red-900">
+                <i class="fas fa-comments text-red-600 dark:text-red-400"></i>
+            </div>
+            <div class="ml-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Unread Feedback</p>
+                <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.UnreadFeedback</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Quick Actions</h3>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-2 gap-4">
+                <a asp-area="Admin" asp-controller="Projects" asp-action="Create" 
+                   class="flex flex-col items-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
+                    <i class="fas fa-plus text-blue-600 dark:text-blue-400 text-2xl mb-2"></i>
+                    <span class="text-sm font-medium text-blue-900 dark:text-blue-200">Add Project</span>
+                </a>
+                
+                <a asp-area="Admin" asp-controller="Achievements" asp-action="Create" 
+                   class="flex flex-col items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors">
+                    <i class="fas fa-trophy text-green-600 dark:text-green-400 text-2xl mb-2"></i>
+                    <span class="text-sm font-medium text-green-900 dark:text-green-200">Add Achievement</span>
+                </a>
+                
+                <a asp-area="Admin" asp-controller="Skills" asp-action="Create" 
+                   class="flex flex-col items-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors">
+                    <i class="fas fa-cogs text-purple-600 dark:text-purple-400 text-2xl mb-2"></i>
+                    <span class="text-sm font-medium text-purple-900 dark:text-purple-200">Add Skill</span>
+                </a>
+                
+                <a asp-area="Admin" asp-controller="Publications" asp-action="Create" 
+                   class="flex flex-col items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors">
+                    <i class="fas fa-book text-orange-600 dark:text-orange-400 text-2xl mb-2"></i>
+                    <span class="text-sm font-medium text-orange-900 dark:text-orange-200">Add Publication</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">GitHub Integration</h3>
+        </div>
+        <div class="p-6">
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                Sync your projects and repositories automatically with GitHub.
+            </p>
+            <button id="syncGitHub" class="w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                <i class="fab fa-github mr-2"></i>
+                Sync with GitHub
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Items -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recent Projects</h3>
+        </div>
+        <div class="p-6">
+            @if (Model.RecentProjects.Any())
+            {
+                <div class="space-y-4">
+                    @foreach (var project in Model.RecentProjects)
+                    {
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">@project.Title</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">@project.ShortDescription</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <a asp-area="Admin" asp-controller="Projects" asp-action="Edit" asp-route-id="@project.Id" 
+                                   class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-gray-500 dark:text-gray-400 text-center py-8">No projects yet</p>
+            }
+        </div>
+    </div>
+    
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Recent Feedback</h3>
+        </div>
+        <div class="p-6">
+            @if (Model.RecentFeedback.Any())
+            {
+                <div class="space-y-4">
+                    @foreach (var feedback in Model.RecentFeedback)
+                    {
+                        <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">@feedback.Name</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">@feedback.Message</p>
+                                </div>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">
+                                    @feedback.CreatedDate.ToString("MMM dd")
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-gray-500 dark:text-gray-400 text-center py-8">No feedback yet</p>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('syncGitHub').addEventListener('click', function() {
+            // Add GitHub sync functionality
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Syncing...';
+            this.disabled = true;
+            
+            // Simulate sync process
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check mr-2"></i>Synced!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fab fa-github mr-2"></i>Sync with GitHub';
+                    this.disabled = false;
+                }, 2000);
+            }, 3000);
+        });
+    </script>
+}
