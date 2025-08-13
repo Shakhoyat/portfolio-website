@@ -1,0 +1,307 @@
+@model DatasetsViewModel
+@{
+    ViewData["Title"] = "Datasets - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-xl text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-database text-green-500 mr-3"></i>
+                Datasets & Research Data
+            </h1>
+            <p class="text-body max-w-3xl mx-auto">
+                Explore the datasets I've created, curated, and published for research and machine learning projects. Each dataset is carefully documented and preprocessed for immediate use.
+            </p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                <div class="flex-1">
+                    <input type="text" id="search-input" placeholder="Search datasets..." 
+                           class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white"
+                           onkeyup="searchDatasets()">
+                </div>
+                <div class="flex gap-2">
+                    <select id="format-filter" onchange="filterDatasets()" 
+                            class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white">
+                        <option value="">All Formats</option>
+                        <option value="CSV">CSV</option>
+                        <option value="JSON">JSON</option>
+                        <option value="SQL">SQL</option>
+                        <option value="XLSX">Excel</option>
+                    </select>
+                    <button onclick="sortDatasets('name')" class="btn-outline">
+                        <i class="fas fa-sort-alpha-down mr-1"></i>
+                        Name
+                    </button>
+                    <button onclick="sortDatasets('date')" class="btn-outline">
+                        <i class="fas fa-calendar mr-1"></i>
+                        Date
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Datasets -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Featured Datasets</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Healthcare Dataset -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-heartbeat text-red-600 dark:text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Healthcare Analytics Dataset</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Medical Data</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        Comprehensive healthcare dataset with patient demographics, treatment outcomes, and diagnostic information for ML model training.
+                    </p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-2 py-1 rounded text-xs">CSV</span>
+                        <span class="text-gray-500 dark:text-gray-400 text-xs">1.2MB</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="btn-modern flex-1 text-center text-sm">
+                            <i class="fas fa-download mr-1"></i>
+                            Download
+                        </a>
+                        <a href="#" class="btn-outline flex-1 text-center text-sm">
+                            <i class="fab fa-kaggle mr-1"></i>
+                            Kaggle
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Weather Dataset -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-cloud-sun text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Weather Observation Data</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Climate Analysis</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        Real-time weather data collected from multiple sensors with temperature, humidity, pressure, and precipitation measurements.
+                    </p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded text-xs">JSON</span>
+                        <span class="text-gray-500 dark:text-gray-400 text-xs">850KB</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="btn-modern flex-1 text-center text-sm">
+                            <i class="fas fa-download mr-1"></i>
+                            Download
+                        </a>
+                        <a href="#" class="btn-outline flex-1 text-center text-sm">
+                            <i class="fab fa-github mr-1"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- IoT Sensor Dataset -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-microchip text-purple-600 dark:text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">IoT Sensor Data</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Smart Systems</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        Multi-sensor IoT dataset with environmental readings, device status, and real-time monitoring data for edge computing research.
+                    </p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-xs">CSV</span>
+                        <span class="text-gray-500 dark:text-gray-400 text-xs">2.5MB</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="btn-modern flex-1 text-center text-sm">
+                            <i class="fas fa-download mr-1"></i>
+                            Download
+                        </a>
+                        <a href="#" class="btn-outline flex-1 text-center text-sm">
+                            <i class="fas fa-chart-line mr-1"></i>
+                            Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Datasets -->
+        @if (Model.Datasets?.Any() == true)
+        {
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">All Datasets</h2>
+                <div id="datasets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    @foreach (var dataset in Model.Datasets)
+                    {
+                        <div class="dataset-card bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-6"
+                             data-name="@dataset.Name.ToLower()"
+                             data-format="@dataset.Format"
+                             data-date="@dataset.CreatedDate.ToString("yyyy-MM-dd")">
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-gray-900 dark:text-white text-lg line-clamp-1">@dataset.Name</h3>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded text-xs">
+                                    @dataset.Format
+                                </span>
+                            </div>
+                            
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm line-clamp-3">@dataset.Description</p>
+                            
+                            <div class="flex items-center justify-between mb-4 text-sm text-gray-500 dark:text-gray-400">
+                                <span>
+                                    <i class="fas fa-hdd mr-1"></i>
+                                    @(dataset.Size ?? "Unknown size")
+                                </span>
+                                <span>
+                                    <i class="fas fa-download mr-1"></i>
+                                    @(dataset.Downloads?.ToString() ?? "0") downloads
+                                </span>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                @if (!string.IsNullOrEmpty(dataset.DownloadUrl))
+                                {
+                                    <a href="@dataset.DownloadUrl" target="_blank" class="btn-modern flex-1 text-center text-sm">
+                                        <i class="fas fa-download mr-1"></i>
+                                        Download
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(dataset.KaggleUrl))
+                                {
+                                    <a href="@dataset.KaggleUrl" target="_blank" class="btn-outline flex-1 text-center text-sm">
+                                        <i class="fab fa-kaggle mr-1"></i>
+                                        Kaggle
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(dataset.GitHubUrl))
+                                {
+                                    <a href="@dataset.GitHubUrl" target="_blank" class="btn-outline flex-1 text-center text-sm">
+                                        <i class="fab fa-github mr-1"></i>
+                                        GitHub
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <!-- Empty State -->
+        <div id="no-datasets" class="text-center py-12 hidden">
+            <i class="fas fa-search text-6xl text-gray-300 dark:text-gray-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-500 dark:text-gray-400 mb-2">No datasets found</h3>
+            <p class="text-gray-400 dark:text-gray-500">Try adjusting your search or filter criteria.</p>
+        </div>
+
+        <!-- Contribution CTA -->
+        <div class="bg-gradient-to-r from-green-600 to-blue-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-bold mb-4">Contribute to Open Data</h2>
+            <p class="text-green-100 mb-6">Help advance research and machine learning by contributing high-quality datasets to the community.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:skt104.shujon@gmail.com?subject=Dataset Contribution" class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-upload mr-2"></i>
+                    Submit Dataset
+                </a>
+                <a href="https://github.com/Shakhoyat" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors">
+                    <i class="fab fa-github mr-2"></i>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchDatasets() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const datasets = document.querySelectorAll('.dataset-card');
+        let visibleCount = 0;
+        
+        datasets.forEach(card => {
+            const name = card.getAttribute('data-name');
+            if (name.includes(searchTerm)) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        toggleEmptyState(visibleCount === 0);
+    }
+    
+    function filterDatasets() {
+        const formatFilter = document.getElementById('format-filter').value;
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const datasets = document.querySelectorAll('.dataset-card');
+        let visibleCount = 0;
+        
+        datasets.forEach(card => {
+            const name = card.getAttribute('data-name');
+            const format = card.getAttribute('data-format');
+            
+            const matchesSearch = name.includes(searchTerm);
+            const matchesFormat = !formatFilter || format === formatFilter;
+            
+            if (matchesSearch && matchesFormat) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        toggleEmptyState(visibleCount === 0);
+    }
+    
+    function sortDatasets(sortBy) {
+        const container = document.getElementById('datasets-container');
+        if (!container) return;
+        
+        const datasets = Array.from(container.querySelectorAll('.dataset-card'));
+        
+        datasets.sort((a, b) => {
+            if (sortBy === 'name') {
+                return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+            } else if (sortBy === 'date') {
+                return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+            }
+        });
+        
+        datasets.forEach(dataset => {
+            container.appendChild(dataset);
+        });
+    }
+    
+    function toggleEmptyState(show) {
+        const emptyState = document.getElementById('no-datasets');
+        const container = document.getElementById('datasets-container');
+        
+        if (emptyState) {
+            if (show) {
+                emptyState.classList.remove('hidden');
+                if (container) container.style.display = 'none';
+            } else {
+                emptyState.classList.add('hidden');
+                if (container) container.style.display = 'grid';
+            }
+        }
+    }
+</script>
