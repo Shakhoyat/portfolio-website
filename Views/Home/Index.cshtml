@@ -1,6 +1,6 @@
 ﻿@model HomeViewModel
 @{
-    ViewData["Title"] = "AI-Driven Research Portfolio";
+    ViewData["Title"] = "Shakhoyat Shujon - Aspiring Data Scientist & ML Engineer";
 }
 
 <!-- Hero Section -->
@@ -9,20 +9,20 @@
         <div class="max-w-4xl mx-auto text-center">
             <div class="animate-fade-in-up">
                 <h1 class="heading-xl mb-6 hero-title">
-                    Hi, I'm <span class="text-yellow-300">@(Model.PersonalInfo?.FullName ?? "Your Name")</span>
+                    Hi, I'm <span class="text-yellow-300">@(Model.PersonalInfo?.FullName ?? "Shakhoyat Shujon")</span>
                 </h1>
                 <p class="text-xl mb-2 text-gray-200 hero-subtitle">
-                    @(Model.PersonalInfo?.Title ?? "Your professional title")
+                    @(Model.PersonalInfo?.Title ?? "Aspiring Data Scientist | Passionate about Deep Learning")
                 </p>
                 <p class="text-lg mb-8 text-gray-300 typewriter">
-                    Full-Stack Developer
+                    CSE Student at KUET | Kaggle Competitor | Problem Solver | 700+ Problems Solved
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
-                    <a href="#portfolio" class="btn-modern magnetic">
+                    <a href="@Url.Action("Projects", "Home")" class="btn-modern magnetic">
                         <i class="fas fa-rocket mr-2"></i>
                         Explore Projects
                     </a>
-                    <a href="@(Model.SocialLinks?.FirstOrDefault(s => s.Platform == "GitHub")?.Url ?? "#")" target="_blank" class="btn-modern magnetic">
+                    <a href="https://github.com/Shakhoyat" target="_blank" class="btn-modern magnetic">
                         <i class="fab fa-github mr-2"></i>
                         View GitHub
                     </a>
