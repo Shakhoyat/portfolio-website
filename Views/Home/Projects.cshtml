@@ -1,0 +1,374 @@
+@model ProjectsViewModel
+@{
+    ViewData["Title"] = "Projects - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-xl text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-rocket text-blue-500 mr-3"></i>
+                Featured Projects
+            </h1>
+            <p class="text-body max-w-3xl mx-auto">
+                Explore my portfolio of data science, machine learning, and web development projects. From healthcare applications to IoT systems, each project showcases innovative solutions to real-world problems.
+            </p>
+        </div>
+
+        <!-- Featured Projects from GitHub README -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">🚀 Featured Projects</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Doctor Appointment Desktop App -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hospital text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">🏥 Doctor Appointment Desktop App</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Healthcare Management System</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Appointment optimization with predictive resource allocation. A comprehensive desktop application for managing doctor appointments with intelligent scheduling algorithms.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 px-3 py-1 rounded-full text-sm">Java</span>
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">JavaFX</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">MySQL</span>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Shakhoyat" target="_blank" class="btn-outline flex-1 text-center">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="btn-modern flex-1 text-center">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Analysis Platform -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">📊 Data Analysis Platform</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Automated EDA Pipeline</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Automated EDA pipeline reducing exploration time by 70%. Streamlined data analysis with interactive visualizations and statistical insights.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full text-sm">Streamlit</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Pandas</span>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Shakhoyat" target="_blank" class="btn-outline flex-1 text-center">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="btn-modern flex-1 text-center">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Weather Observation WebApp -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-cloud-sun text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">🌤️ Weather Observation WebApp</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Real-time Weather Analytics</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Real-time analytics with geospatial forecasting. Modern web application providing detailed weather information with predictive analytics.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">TypeScript</span>
+                        <span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full text-sm">APIs</span>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Shakhoyat" target="_blank" class="btn-outline flex-1 text-center">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                        <a href="#" class="btn-modern flex-1 text-center">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">💼 Portfolio Website</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Personal Portfolio & Blog</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Modern, responsive portfolio website built with ASP.NET Core featuring Kaggle integration, educational timeline, and admin panel for content management.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-sm">ASP.NET Core</span>
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm">C#</span>
+                        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Shakhoyat/portfolio-website" target="_blank" class="btn-outline flex-1 text-center">
+                            <i class="fab fa-github mr-2"></i>
+                            View Code
+                        </a>
+                        <a href="/" class="btn-modern flex-1 text-center">
+                            <i class="fas fa-home mr-2"></i>
+                            You're Here!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Projects from Database -->
+        @if (Model.Projects?.Any() == true)
+        {
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">All Projects</h2>
+                
+                <!-- Filter Controls -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 mb-8 shadow-sm">
+                    <div class="flex flex-wrap gap-4 items-center justify-between">
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="filterProjects('All')" class="filter-btn active" data-filter="All">
+                                All Projects
+                            </button>
+                            <button onclick="filterProjects('Web Development')" class="filter-btn" data-filter="Web Development">
+                                <i class="fas fa-globe mr-1"></i>
+                                Web Development
+                            </button>
+                            <button onclick="filterProjects('Data Science')" class="filter-btn" data-filter="Data Science">
+                                <i class="fas fa-chart-line mr-1"></i>
+                                Data Science
+                            </button>
+                            <button onclick="filterProjects('Machine Learning')" class="filter-btn" data-filter="Machine Learning">
+                                <i class="fas fa-robot mr-1"></i>
+                                Machine Learning
+                            </button>
+                            <button onclick="filterProjects('IoT')" class="filter-btn" data-filter="IoT">
+                                <i class="fas fa-microchip mr-1"></i>
+                                IoT
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <label class="text-sm text-gray-600 dark:text-gray-400">Sort by:</label>
+                            <select onchange="sortProjects(this.value)" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white">
+                                <option value="date-desc">Latest First</option>
+                                <option value="date-asc">Oldest First</option>
+                                <option value="name-asc">Name A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    @foreach (var project in Model.Projects)
+                    {
+                        <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-6"
+                             data-category="@project.Category" 
+                             data-date="@project.CreatedDate.ToString("yyyy-MM-dd")"
+                             data-name="@project.Title">
+                            
+                            @if (!string.IsNullOrEmpty(project.ImageUrl))
+                            {
+                                <div class="mb-4">
+                                    <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-48 object-cover rounded-lg">
+                                </div>
+                            }
+                            
+                            <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-lg leading-tight">@project.Title</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">@project.ShortDescription</p>
+                            
+                            @if (!string.IsNullOrEmpty(project.TechnologiesUsed))
+                            {
+                                <div class="flex flex-wrap gap-1 mb-4">
+                                    @foreach (var tech in project.TechnologiesUsed.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                    {
+                                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded text-xs">
+                                            @tech.Trim()
+                                        </span>
+                                    }
+                                </div>
+                            }
+                            
+                            <div class="flex gap-2">
+                                @if (!string.IsNullOrEmpty(project.GitHubUrl))
+                                {
+                                    <a href="@project.GitHubUrl" target="_blank" class="btn-outline flex-1 text-center text-sm">
+                                        <i class="fab fa-github mr-1"></i>
+                                        Code
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(project.LiveDemoUrl))
+                                {
+                                    <a href="@project.LiveDemoUrl" target="_blank" class="btn-modern flex-1 text-center text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        Demo
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <!-- Call to Action -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-bold mb-4">Interested in Collaboration?</h2>
+            <p class="text-blue-100 mb-6">I'm always open to discussing new projects, creative ideas, or opportunities to contribute to meaningful work.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="@Url.Action("Contact", "Home")" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Get In Touch
+                </a>
+                <a href="https://github.com/Shakhoyat" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    <i class="fab fa-github mr-2"></i>
+                    View All Repositories
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #d1d5db;
+        color: #374151;
+        background-color: white;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    
+    .dark .filter-btn {
+        border-color: #4b5563;
+        color: #d1d5db;
+        background-color: #1f2937;
+    }
+    
+    .filter-btn:hover {
+        background-color: #f9fafb;
+    }
+    
+    .dark .filter-btn:hover {
+        background-color: #374151;
+    }
+    
+    .filter-btn.active {
+        background-color: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+    
+    .filter-btn.active:hover {
+        background-color: #1d4ed8;
+    }
+    
+    .project-card {
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+
+<script>
+    function filterProjects(filter) {
+        const projects = document.querySelectorAll('.project-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        // Update button states
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-filter') === filter) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Filter projects
+        projects.forEach(card => {
+            const category = card.getAttribute('data-category');
+            
+            if (filter === 'All' || category === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    function sortProjects(sortBy) {
+        const container = document.getElementById('projects-container');
+        const projects = Array.from(container.querySelectorAll('.project-card'));
+        
+        projects.sort((a, b) => {
+            if (sortBy === 'date-desc') {
+                return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+            } else if (sortBy === 'date-asc') {
+                return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+            } else if (sortBy === 'name-asc') {
+                return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+            }
+        });
+        
+        // Re-append sorted elements
+        projects.forEach(project => {
+            container.appendChild(project);
+        });
+    }
+    
+    // Initialize filters
+    document.addEventListener('DOMContentLoaded', function() {
+        filterProjects('All');
+    });
+</script>
