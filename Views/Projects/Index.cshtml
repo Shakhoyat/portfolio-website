@@ -1,0 +1,527 @@
+@{
+    ViewData["Title"] = "Research Projects";
+}
+
+<!-- Header Section -->
+<section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="heading-xl mb-4">Research Projects</h1>
+            <p class="text-xl text-blue-100">
+                Explore my portfolio of AI and machine learning projects, from cutting-edge research to practical applications.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Filter and Search Section -->
+<section class="py-8 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <div class="relative">
+                        <input type="text" id="searchInput" class="form-input pl-10" 
+                               placeholder="Search projects...">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="featured">Featured</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                    <button class="filter-btn" data-filter="research">Research</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Deep Learning Vision System -->
+                <div class="project-card project-item" data-tags="deep-learning computer-vision pytorch featured completed">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-blue-400 to-purple-600 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-eye text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge featured">
+                                <i class="fas fa-star mr-1"></i>
+                                Featured
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Deep Learning Vision System</h3>
+                        <p class="text-body mb-4">
+                            Advanced computer vision system using deep neural networks for real-time object detection, 
+                            classification, and semantic segmentation with 95% accuracy on custom datasets.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">PyTorch</span>
+                            <span class="skill-pill">OpenCV</span>
+                            <span class="skill-pill">CUDA</span>
+                            <span class="skill-pill">Docker</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2024</span>
+                            <span><i class="fas fa-star mr-1"></i>4.9/5</span>
+                            <span><i class="fas fa-download mr-1"></i>1.2k</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: NLP Sentiment Analyzer -->
+                <div class="project-card project-item" data-tags="nlp transformers bert hugging-face completed">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-green-400 to-blue-500 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-comments text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge completed">
+                                <i class="fas fa-check mr-1"></i>
+                                Completed
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">NLP Sentiment Analyzer</h3>
+                        <p class="text-body mb-4">
+                            Transformer-based sentiment analysis system using BERT architecture for social media monitoring 
+                            and customer feedback analysis with multi-language support.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">Transformers</span>
+                            <span class="skill-pill">BERT</span>
+                            <span class="skill-pill">Hugging Face</span>
+                            <span class="skill-pill">FastAPI</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2024</span>
+                            <span><i class="fas fa-star mr-1"></i>4.7/5</span>
+                            <span><i class="fas fa-download mr-1"></i>856</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Reinforcement Learning Agent -->
+                <div class="project-card project-item" data-tags="reinforcement-learning tensorflow dqn in-progress">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-purple-400 to-pink-600 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge in-progress">
+                                <i class="fas fa-cog mr-1"></i>
+                                In Progress
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Reinforcement Learning Agent</h3>
+                        <p class="text-body mb-4">
+                            Intelligent agent using deep Q-networks (DQN) for autonomous decision making in complex 
+                            environments with real-time strategy optimization.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">TensorFlow</span>
+                            <span class="skill-pill">OpenAI Gym</span>
+                            <span class="skill-pill">DQN</span>
+                            <span class="skill-pill">Ray</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2024</span>
+                            <span><i class="fas fa-star mr-1"></i>4.5/5</span>
+                            <span><i class="fas fa-download mr-1"></i>523</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Generative AI Art System -->
+                <div class="project-card project-item" data-tags="generative-ai gan diffusion research">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-yellow-400 to-red-600 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-palette text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge in-progress">
+                                <i class="fas fa-flask mr-1"></i>
+                                Research
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Generative AI Art System</h3>
+                        <p class="text-body mb-4">
+                            Novel approach to AI-generated artwork using combination of GANs and diffusion models 
+                            for style transfer and artistic content creation.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">PyTorch</span>
+                            <span class="skill-pill">Diffusers</span>
+                            <span class="skill-pill">GANs</span>
+                            <span class="skill-pill">CLIP</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2024</span>
+                            <span><i class="fas fa-star mr-1"></i>4.8/5</span>
+                            <span><i class="fas fa-download mr-1"></i>734</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Quantum ML Framework -->
+                <div class="project-card project-item" data-tags="quantum-computing machine-learning qiskit research">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-indigo-400 to-purple-700 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-atom text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge in-progress">
+                                <i class="fas fa-flask mr-1"></i>
+                                Research
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Quantum ML Framework</h3>
+                        <p class="text-body mb-4">
+                            Experimental framework for quantum machine learning algorithms with potential speedup 
+                            for specific optimization problems and pattern recognition tasks.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">Qiskit</span>
+                            <span class="skill-pill">Cirq</span>
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">NumPy</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2024</span>
+                            <span><i class="fas fa-star mr-1"></i>4.3/5</span>
+                            <span><i class="fas fa-download mr-1"></i>312</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Medical Image Analysis -->
+                <div class="project-card project-item" data-tags="medical-ai computer-vision tensorflow featured completed">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-teal-400 to-blue-600 h-48">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-heartbeat text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="project-badge featured">
+                                <i class="fas fa-star mr-1"></i>
+                                Featured
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com" target="_blank" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Medical Image Analysis</h3>
+                        <p class="text-body mb-4">
+                            AI-powered diagnostic tool for medical image analysis with CNN architecture optimized 
+                            for detecting anomalies in X-rays and MRI scans with clinical validation.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">TensorFlow</span>
+                            <span class="skill-pill">Keras</span>
+                            <span class="skill-pill">DICOM</span>
+                            <span class="skill-pill">OpenCV</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-calendar mr-1"></i>2023</span>
+                            <span><i class="fas fa-star mr-1"></i>4.9/5</span>
+                            <span><i class="fas fa-download mr-1"></i>2.1k</span>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="btn-outline">
+                    <i class="fas fa-plus mr-2"></i>
+                    Load More Projects
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GitHub Integration Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-lg mb-6 text-gray-900 dark:text-white">GitHub Integration</h2>
+            <p class="text-body mb-8">
+                All projects are synchronized with GitHub repositories, providing real-time updates on commits, 
+                stars, and collaboration metrics.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stat-card text-center">
+                    <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">250+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Total Commits</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">15</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Public Repos</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">1.2k</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Total Stars</div>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <a href="https://github.com" target="_blank" class="btn-primary">
+                    <i class="fab fa-github mr-2"></i>
+                    View GitHub Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterProjects(getCurrentFilter(), searchTerm);
+            });
+            
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    const searchTerm = searchInput.value.toLowerCase();
+                    filterProjects(filter, searchTerm);
+                });
+            });
+            
+            function getCurrentFilter() {
+                const activeButton = document.querySelector('.filter-btn.active');
+                return activeButton ? activeButton.dataset.filter : 'all';
+            }
+            
+            function filterProjects(filter, searchTerm = '') {
+                projectItems.forEach(item => {
+                    const tags = item.dataset.tags.toLowerCase();
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    const description = item.querySelector('.text-body').textContent.toLowerCase();
+                    
+                    const matchesFilter = filter === 'all' || tags.includes(filter);
+                    const matchesSearch = searchTerm === '' || 
+                                        title.includes(searchTerm) || 
+                                        description.includes(searchTerm) || 
+                                        tags.includes(searchTerm);
+                    
+                    if (matchesFilter && matchesSearch) {
+                        item.style.display = 'block';
+                        item.classList.add('animate-fade-in-up');
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('animate-fade-in-up');
+                    }
+                });
+            }
+            
+            // Load more functionality (placeholder)
+            document.getElementById('loadMoreBtn').addEventListener('click', function() {
+                this.innerHTML = '<span class="spinner mr-2"></span>Loading...';
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i>All Projects Loaded';
+                    this.disabled = true;
+                }, 2000);
+            });
+        });
+    </script>
+    
+    <style>
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            background-color: white;
+            color: #374151;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .dark .filter-btn {
+            border-color: #4b5563;
+            background-color: #374151;
+            color: #d1d5db;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f3f4f6;
+            border-color: #9ca3af;
+        }
+        
+        .dark .filter-btn:hover {
+            background-color: #4b5563;
+            border-color: #6b7280;
+        }
+        
+        .filter-btn.active {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+        
+        .filter-btn.active:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+    </style>
+}

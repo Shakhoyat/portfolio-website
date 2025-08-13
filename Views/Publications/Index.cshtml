@@ -1,0 +1,576 @@
+@{
+    ViewData["Title"] = "Publications & Research";
+}
+
+<!-- Header Section -->
+<section class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="heading-xl mb-4">Publications & Research</h1>
+            <p class="text-xl text-purple-100">
+                Academic publications, conference papers, and research contributions in artificial intelligence and machine learning.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Research Metrics -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stat-card text-center">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="stat-number">1,250+</div>
+                    <div class="stat-label">Citations</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">H-Index</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Conference Talks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Section -->
+<section class="py-8">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <div class="relative">
+                        <input type="text" id="searchInput" class="form-input pl-10" 
+                               placeholder="Search publications...">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-btn active" data-filter="all">All Publications</button>
+                    <button class="filter-btn" data-filter="journal">Journal Articles</button>
+                    <button class="filter-btn" data-filter="conference">Conference Papers</button>
+                    <button class="filter-btn" data-filter="preprint">Preprints</button>
+                    <button class="filter-btn" data-filter="thesis">Thesis</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Publications List -->
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div id="publicationsList" class="space-y-8">
+                
+                <!-- Publication 1 -->
+                <div class="publication-item card p-6" data-type="journal" data-year="2024">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="project-badge featured">
+                                        <i class="fas fa-star mr-1"></i>
+                                        Featured
+                                    </span>
+                                    <span class="text-sm text-gray-500">Journal Article</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500">Citations</div>
+                                    <div class="text-lg font-bold text-blue-600 dark:text-blue-400">142</div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="heading-md text-gray-900 dark:text-white mb-2">
+                                Deep Neural Networks for Multi-Modal Medical Image Analysis: A Comprehensive Study
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                <strong>Authors:</strong> You, Researcher A., Researcher B., Researcher C.
+                            </p>
+                            
+                            <p class="text-body mb-4">
+                                This paper presents a novel approach to multi-modal medical image analysis using deep convolutional neural networks. 
+                                We demonstrate significant improvements in diagnostic accuracy across multiple medical imaging modalities including X-ray, 
+                                MRI, and CT scans. Our method achieves state-of-the-art performance on benchmark datasets with 95.2% accuracy.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="skill-pill">Deep Learning</span>
+                                <span class="skill-pill">Medical AI</span>
+                                <span class="skill-pill">Computer Vision</span>
+                                <span class="skill-pill">CNN</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-journal-whills mr-1"></i>
+                                    <strong>IEEE Transactions on Medical Imaging</strong> • 2024
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="btn-outline text-sm">
+                                        <i class="fas fa-file-pdf mr-1"></i>
+                                        PDF
+                                    </a>
+                                    <a href="#" class="btn-secondary text-sm">
+                                        <i class="fas fa-quote-right mr-1"></i>
+                                        Cite
+                                    </a>
+                                    <a href="#" class="btn-primary text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        DOI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-48 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-blue-400 to-purple-600 rounded-lg h-32 flex items-center justify-center">
+                                <i class="fas fa-heartbeat text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Publication 2 -->
+                <div class="publication-item card p-6" data-type="conference" data-year="2024">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="project-badge completed">
+                                        <i class="fas fa-microphone mr-1"></i>
+                                        Presented
+                                    </span>
+                                    <span class="text-sm text-gray-500">Conference Paper</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500">Citations</div>
+                                    <div class="text-lg font-bold text-blue-600 dark:text-blue-400">89</div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="heading-md text-gray-900 dark:text-white mb-2">
+                                Attention Mechanisms in Natural Language Understanding: A Comparative Analysis
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                <strong>Authors:</strong> You, Co-author D., Co-author E.
+                            </p>
+                            
+                            <p class="text-body mb-4">
+                                We conduct a comprehensive comparative analysis of various attention mechanisms in transformer-based models 
+                                for natural language understanding tasks. Our findings reveal optimal configurations for different NLP applications 
+                                and propose a novel hybrid attention mechanism that improves performance by 12%.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="skill-pill">NLP</span>
+                                <span class="skill-pill">Transformers</span>
+                                <span class="skill-pill">Attention</span>
+                                <span class="skill-pill">BERT</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-users mr-1"></i>
+                                    <strong>NeurIPS 2024</strong> • New Orleans, LA
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="btn-outline text-sm">
+                                        <i class="fas fa-file-pdf mr-1"></i>
+                                        PDF
+                                    </a>
+                                    <a href="#" class="btn-secondary text-sm">
+                                        <i class="fas fa-play mr-1"></i>
+                                        Video
+                                    </a>
+                                    <a href="#" class="btn-primary text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        ArXiv
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-48 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-green-400 to-blue-600 rounded-lg h-32 flex items-center justify-center">
+                                <i class="fas fa-comments text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Publication 3 -->
+                <div class="publication-item card p-6" data-type="journal" data-year="2023">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="project-badge completed">
+                                        <i class="fas fa-check mr-1"></i>
+                                        Published
+                                    </span>
+                                    <span class="text-sm text-gray-500">Journal Article</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500">Citations</div>
+                                    <div class="text-lg font-bold text-blue-600 dark:text-blue-400">267</div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="heading-md text-gray-900 dark:text-white mb-2">
+                                Reinforcement Learning for Autonomous Systems: Challenges and Opportunities
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                <strong>Authors:</strong> You, Research Team Lead F.
+                            </p>
+                            
+                            <p class="text-body mb-4">
+                                A comprehensive survey of reinforcement learning applications in autonomous systems, highlighting current challenges 
+                                and future research directions. We analyze 150+ papers and identify key gaps in sample efficiency, safety, 
+                                and real-world deployment of RL algorithms.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="skill-pill">Reinforcement Learning</span>
+                                <span class="skill-pill">Autonomous Systems</span>
+                                <span class="skill-pill">Survey</span>
+                                <span class="skill-pill">Safety AI</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-journal-whills mr-1"></i>
+                                    <strong>Nature Machine Intelligence</strong> • 2023
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="btn-outline text-sm">
+                                        <i class="fas fa-file-pdf mr-1"></i>
+                                        PDF
+                                    </a>
+                                    <a href="#" class="btn-secondary text-sm">
+                                        <i class="fas fa-quote-right mr-1"></i>
+                                        Cite
+                                    </a>
+                                    <a href="#" class="btn-primary text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        DOI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-48 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-purple-400 to-pink-600 rounded-lg h-32 flex items-center justify-center">
+                                <i class="fas fa-robot text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Publication 4 -->
+                <div class="publication-item card p-6" data-type="preprint" data-year="2024">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="project-badge in-progress">
+                                        <i class="fas fa-clock mr-1"></i>
+                                        Preprint
+                                    </span>
+                                    <span class="text-sm text-gray-500">Under Review</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500">Citations</div>
+                                    <div class="text-lg font-bold text-blue-600 dark:text-blue-400">23</div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="heading-md text-gray-900 dark:text-white mb-2">
+                                Quantum-Classical Hybrid Algorithms for Machine Learning Optimization
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                <strong>Authors:</strong> You, Quantum Research Collaborator G., ML Expert H.
+                            </p>
+                            
+                            <p class="text-body mb-4">
+                                We propose novel quantum-classical hybrid algorithms that leverage quantum computing advantages for specific 
+                                machine learning optimization problems. Experimental results on quantum simulators demonstrate potential 
+                                speedups for high-dimensional optimization tasks with preliminary quantum hardware validation.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="skill-pill">Quantum Computing</span>
+                                <span class="skill-pill">ML Optimization</span>
+                                <span class="skill-pill">Hybrid Algorithms</span>
+                                <span class="skill-pill">QAOA</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-upload mr-1"></i>
+                                    <strong>arXiv preprint</strong> • Under review at ICML 2025
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="btn-outline text-sm">
+                                        <i class="fas fa-file-pdf mr-1"></i>
+                                        PDF
+                                    </a>
+                                    <a href="#" class="btn-secondary text-sm">
+                                        <i class="fab fa-github mr-1"></i>
+                                        Code
+                                    </a>
+                                    <a href="#" class="btn-primary text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        ArXiv
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-48 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-indigo-400 to-purple-700 rounded-lg h-32 flex items-center justify-center">
+                                <i class="fas fa-atom text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Publication 5 -->
+                <div class="publication-item card p-6" data-type="thesis" data-year="2022">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="project-badge completed">
+                                        <i class="fas fa-graduation-cap mr-1"></i>
+                                        Thesis
+                                    </span>
+                                    <span class="text-sm text-gray-500">PhD Dissertation</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm text-gray-500">Citations</div>
+                                    <div class="text-lg font-bold text-blue-600 dark:text-blue-400">156</div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="heading-md text-gray-900 dark:text-white mb-2">
+                                Advanced Deep Learning Architectures for Multi-Modal AI Systems
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                <strong>Author:</strong> You • <strong>Advisor:</strong> Prof. Distinguished Advisor
+                            </p>
+                            
+                            <p class="text-body mb-4">
+                                This dissertation explores novel deep learning architectures that can effectively process and integrate 
+                                information from multiple modalities including vision, text, and audio. The work contributes three major 
+                                architectural innovations and demonstrates their effectiveness across diverse AI applications.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="skill-pill">Deep Learning</span>
+                                <span class="skill-pill">Multi-Modal AI</span>
+                                <span class="skill-pill">Neural Architecture</span>
+                                <span class="skill-pill">PhD Research</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-university mr-1"></i>
+                                    <strong>Stanford University</strong> • Computer Science Department • 2022
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="btn-outline text-sm">
+                                        <i class="fas fa-file-pdf mr-1"></i>
+                                        PDF
+                                    </a>
+                                    <a href="#" class="btn-secondary text-sm">
+                                        <i class="fas fa-quote-right mr-1"></i>
+                                        Cite
+                                    </a>
+                                    <a href="#" class="btn-primary text-sm">
+                                        <i class="fas fa-external-link-alt mr-1"></i>
+                                        Repository
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-48 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-yellow-400 to-red-600 rounded-lg h-32 flex items-center justify-center">
+                                <i class="fas fa-brain text-white text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="btn-outline">
+                    <i class="fas fa-plus mr-2"></i>
+                    Load More Publications
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Scholar Integration -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-lg mb-6 text-gray-900 dark:text-white">Academic Profiles</h2>
+            <p class="text-body mb-8">
+                Connect with me on academic platforms and explore my complete research profile.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#" class="card p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Google Scholar</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Complete publication list and citation metrics</p>
+                </a>
+                
+                <a href="#" class="card p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-orcid text-green-600 dark:text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">ORCID</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Verified research contributions and collaborations</p>
+                </a>
+                
+                <a href="#" class="card p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-flask text-purple-600 dark:text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 dark:text-white mb-2">ResearchGate</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Network with researchers and access preprints</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const publicationItems = document.querySelectorAll('.publication-item');
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterPublications(getCurrentFilter(), searchTerm);
+            });
+            
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    const searchTerm = searchInput.value.toLowerCase();
+                    filterPublications(filter, searchTerm);
+                });
+            });
+            
+            function getCurrentFilter() {
+                const activeButton = document.querySelector('.filter-btn.active');
+                return activeButton ? activeButton.dataset.filter : 'all';
+            }
+            
+            function filterPublications(filter, searchTerm = '') {
+                publicationItems.forEach(item => {
+                    const type = item.dataset.type;
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    const content = item.textContent.toLowerCase();
+                    
+                    const matchesFilter = filter === 'all' || type === filter;
+                    const matchesSearch = searchTerm === '' || 
+                                        title.includes(searchTerm) || 
+                                        content.includes(searchTerm);
+                    
+                    if (matchesFilter && matchesSearch) {
+                        item.style.display = 'block';
+                        item.classList.add('animate-fade-in-up');
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('animate-fade-in-up');
+                    }
+                });
+            }
+            
+            // Load more functionality
+            document.getElementById('loadMoreBtn').addEventListener('click', function() {
+                this.innerHTML = '<span class="spinner mr-2"></span>Loading...';
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i>All Publications Loaded';
+                    this.disabled = true;
+                }, 2000);
+            });
+        });
+    </script>
+    
+    <style>
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            background-color: white;
+            color: #374151;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .dark .filter-btn {
+            border-color: #4b5563;
+            background-color: #374151;
+            color: #d1d5db;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f3f4f6;
+            border-color: #9ca3af;
+        }
+        
+        .dark .filter-btn:hover {
+            background-color: #4b5563;
+            border-color: #6b7280;
+        }
+        
+        .filter-btn.active {
+            background-color: #7c3aed;
+            border-color: #7c3aed;
+            color: white;
+        }
+        
+        .filter-btn.active:hover {
+            background-color: #6d28d9;
+            border-color: #6d28d9;
+        }
+    </style>
+}
