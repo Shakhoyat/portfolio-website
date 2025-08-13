@@ -186,9 +186,9 @@
             </div>
 
             <!-- Dynamic Gallery Items from Model -->
-            @if (Model.GalleryItems?.Any() == true)
+            @if (Model.Photos?.Any() == true)
             {
-                @foreach (var item in Model.GalleryItems)
+                @foreach (var item in Model.Photos)
                 {
                     <div class="gallery-item" data-category="@item.Category.ToLower()" data-title="@item.Title" data-description="@item.Description">
                         <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
@@ -203,21 +203,21 @@
                                         <i class="fas fa-image text-6xl opacity-50"></i>
                                     </div>
                                 }
-                                @if (!string.IsNullOrEmpty(item.Technology))
+                                @if (!string.IsNullOrEmpty(item.Category))
                                 {
                                     <div class="absolute top-3 right-3">
-                                        <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">@item.Technology</span>
+                                        <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">@item.Category</span>
                                     </div>
                                 }
                             </div>
                             <div class="p-4">
                                 <h3 class="font-bold text-gray-900 dark:text-white mb-2">@item.Title</h3>
                                 <p class="text-gray-600 dark:text-gray-400 text-sm">@item.Description</p>
-                                @if (item.CreatedDate.HasValue)
+                                @if (item.DateTaken != default(DateTime))
                                 {
                                     <p class="text-gray-500 dark:text-gray-500 text-xs mt-2">
                                         <i class="fas fa-calendar mr-1"></i>
-                                        @item.CreatedDate.Value.ToString("MMM yyyy")
+                                        @item.DateTaken.ToString("MMM yyyy")
                                     </p>
                                 }
                             </div>
