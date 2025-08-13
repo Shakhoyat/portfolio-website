@@ -1,8 +1,483 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "AI-Driven Research Portfolio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Hero Section -->
+<section class="hero-gradient text-white py-20">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="animate-fade-in-up">
+                <h1 class="heading-xl mb-6">
+                    Welcome to My <span class="text-yellow-300">AI-Enhanced</span> Research Portfolio
+                </h1>
+                <p class="text-xl mb-8 text-gray-200">
+                    Exploring the frontiers of artificial intelligence and machine learning through innovative research and dynamic project development.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#portfolio" class="btn-primary">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore Projects
+                    </a>
+                    <a href="/Projects" class="btn-outline">
+                        <i class="fas fa-code mr-2"></i>
+                        View GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Three.js Canvas Container -->
+    <div id="hero-canvas" class="absolute inset-0 pointer-events-none opacity-30"></div>
+</section>
+
+<!-- AI Job Mode Banner -->
+<div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4 mb-8">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <i class="fas fa-brain text-blue-600 mr-3"></i>
+                <div>
+                    <h4 class="font-semibold text-blue-800 dark:text-blue-200">AI-Powered Job Matching</h4>
+                    <p class="text-blue-600 dark:text-blue-300">Upload a job description to see personalized skill highlights and project rankings</p>
+                </div>
+            </div>
+            <a href="/AIJobMode" class="btn-primary">
+                Try AI Mode
+            </a>
+        </div>
+    </div>
 </div>
+
+<!-- Stats Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="stat-card text-center">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Research Projects</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Skills Mastered</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4 text-gray-900 dark:text-white">About Me</h2>
+                <p class="text-body max-w-3xl mx-auto">
+                    I'm a passionate AI researcher and developer dedicated to pushing the boundaries of artificial intelligence 
+                    and machine learning. My work spans across multiple domains, from computer vision to natural language processing.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="heading-md text-gray-900 dark:text-white mb-2">Education</h3>
+                                <p class="text-body">Ph.D. in Computer Science with focus on Machine Learning and AI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-microscope text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="heading-md text-gray-900 dark:text-white mb-2">Research Focus</h3>
+                                <p class="text-body">Deep Learning, Computer Vision, NLP, and Reinforcement Learning</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-award text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="heading-md text-gray-900 dark:text-white mb-2">Achievements</h3>
+                                <p class="text-body">Published researcher with contributions to top-tier AI conferences</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative">
+                        <div class="aspect-square bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl p-1">
+                            <div class="w-full h-full bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-user text-6xl text-gray-400 dark:text-gray-600"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section id="portfolio" class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4 text-gray-900 dark:text-white">Featured Projects</h2>
+                <p class="text-body max-w-3xl mx-auto">
+                    Explore my latest research projects and applications that showcase cutting-edge AI technologies.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="project-badge featured">
+                                <i class="fas fa-star mr-1"></i>
+                                Featured
+                            </span>
+                            <div class="flex space-x-2">
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Deep Learning Vision System</h3>
+                        <p class="text-body mb-4">
+                            Advanced computer vision system using deep neural networks for real-time object detection and classification.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">PyTorch</span>
+                            <span class="skill-pill">OpenCV</span>
+                            <span class="skill-pill">CUDA</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Updated 2 days ago</span>
+                            <a href="/Projects" class="btn-primary">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="project-badge completed">
+                                <i class="fas fa-check mr-1"></i>
+                                Completed
+                            </span>
+                            <div class="flex space-x-2">
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">NLP Sentiment Analyzer</h3>
+                        <p class="text-body mb-4">
+                            Natural language processing system for sentiment analysis with transformer-based architecture.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">Transformers</span>
+                            <span class="skill-pill">BERT</span>
+                            <span class="skill-pill">Hugging Face</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Updated 1 week ago</span>
+                            <a href="/Projects" class="btn-primary">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="project-badge in-progress">
+                                <i class="fas fa-cog mr-1"></i>
+                                In Progress
+                            </span>
+                            <div class="flex space-x-2">
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-blue-600">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-2">Reinforcement Learning Agent</h3>
+                        <p class="text-body mb-4">
+                            Intelligent agent using deep reinforcement learning for autonomous decision making in complex environments.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="skill-pill">TensorFlow</span>
+                            <span class="skill-pill">OpenAI Gym</span>
+                            <span class="skill-pill">DQN</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Updated 3 days ago</span>
+                            <a href="/Projects" class="btn-primary">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/Projects" class="btn-outline">
+                    <i class="fas fa-folder-open mr-2"></i>
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4 text-gray-900 dark:text-white">Technical Skills</h2>
+                <p class="text-body max-w-3xl mx-auto">
+                    A comprehensive overview of my technical expertise across various domains of artificial intelligence and software development.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI/ML Category -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="heading-md text-gray-900 dark:text-white">AI & Machine Learning</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="skill-pill">
+                                TensorFlow
+                                <span class="skill-level skill-level-5"></span>
+                            </span>
+                            <span class="skill-pill">
+                                PyTorch
+                                <span class="skill-level skill-level-5"></span>
+                            </span>
+                            <span class="skill-pill">
+                                Scikit-learn
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                            <span class="skill-pill">
+                                Keras
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programming Languages -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="heading-md text-gray-900 dark:text-white">Programming Languages</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="skill-pill">
+                                Python
+                                <span class="skill-level skill-level-5"></span>
+                            </span>
+                            <span class="skill-pill">
+                                C#
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                            <span class="skill-pill">
+                                JavaScript
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                            <span class="skill-pill">
+                                R
+                                <span class="skill-level skill-level-3"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Science -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="heading-md text-gray-900 dark:text-white">Data Science</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap gap-1">
+                            <span class="skill-pill">
+                                Pandas
+                                <span class="skill-level skill-level-5"></span>
+                            </span>
+                            <span class="skill-pill">
+                                NumPy
+                                <span class="skill-level skill-level-5"></span>
+                            </span>
+                            <span class="skill-pill">
+                                Matplotlib
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                            <span class="skill-pill">
+                                Seaborn
+                                <span class="skill-level skill-level-4"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="heading-lg mb-4 text-gray-900 dark:text-white">Ready to Collaborate?</h2>
+            <p class="text-body mb-8">
+                I'm always interested in discussing new research opportunities, collaborations, or innovative AI projects.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/Contact" class="btn-primary">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Get In Touch
+                </a>
+                <a href="/Publications" class="btn-secondary">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    View Publications
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js Hero Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('hero-canvas');
+            if (!container) return;
+            
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            container.appendChild(renderer.domElement);
+            
+            // Create floating particles
+            const geometry = new THREE.BufferGeometry();
+            const positions = [];
+            const colors = [];
+            
+            for (let i = 0; i < 1000; i++) {
+                positions.push((Math.random() - 0.5) * 100);
+                positions.push((Math.random() - 0.5) * 100);
+                positions.push((Math.random() - 0.5) * 100);
+                
+                colors.push(Math.random());
+                colors.push(Math.random());
+                colors.push(1);
+            }
+            
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            
+            const material = new THREE.PointsMaterial({
+                size: 0.5,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+            
+            camera.position.z = 30;
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                particles.rotation.x += 0.001;
+                particles.rotation.y += 0.002;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', function() {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+}
