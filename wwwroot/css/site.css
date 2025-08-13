@@ -1,24 +1,247 @@
-html {
-  font-size: 14px;
+/* Custom CSS for AI Research Portfolio */
+
+/* Navigation Styles */
+.nav-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.nav-link.active {
+    @apply text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.mobile-nav-link {
+    @apply block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+/* Hero Section */
+.hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-body {
-  margin-bottom: 60px;
+.dark .hero-gradient {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+}
+
+/* Card Styles */
+.card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-105;
+}
+
+.card-hover {
+    @apply transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 inline-flex items-center;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+.btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+/* Form Styles */
+.form-input {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+.form-textarea {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-vertical;
+}
+
+.form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+/* Skill Pills */
+.skill-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 mr-2 mb-2;
+}
+
+.skill-level {
+    @apply ml-2 w-2 h-2 rounded-full;
+}
+
+.skill-level-1 { @apply bg-red-400; }
+.skill-level-2 { @apply bg-orange-400; }
+.skill-level-3 { @apply bg-yellow-400; }
+.skill-level-4 { @apply bg-green-400; }
+.skill-level-5 { @apply bg-blue-400; }
+
+/* Project Cards */
+.project-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.project-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.project-badge.featured {
+    @apply bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300;
+}
+
+.project-badge.completed {
+    @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300;
+}
+
+.project-badge.in-progress {
+    @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300;
+}
+
+/* Timeline Styles */
+.timeline {
+    @apply relative;
+}
+
+.timeline::before {
+    content: '';
+    @apply absolute left-4 top-0 h-full w-0.5 bg-gray-300 dark:bg-gray-600;
+}
+
+.timeline-item {
+    @apply relative pl-10 pb-8;
+}
+
+.timeline-marker {
+    @apply absolute left-2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-900;
+}
+
+/* AI Features */
+.ai-highlight {
+    @apply bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 border-l-4 border-purple-500 pl-4 py-3 rounded;
+}
+
+.relevance-score {
+    @apply inline-flex items-center px-2 py-1 rounded text-xs font-semibold;
+}
+
+.relevance-high {
+    @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300;
+}
+
+.relevance-medium {
+    @apply bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300;
+}
+
+.relevance-low {
+    @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Dark mode transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Loading Spinner */
+.spinner {
+    @apply inline-block w-4 h-4 border-2 border-gray-300 border-t-primary-600 rounded-full animate-spin;
+}
+
+/* Success/Error Messages */
+.alert-success {
+    @apply bg-green-50 dark:bg-green-900/20 border-l-4 border-green-400 p-4 text-green-700 dark:text-green-300;
+}
+
+.alert-error {
+    @apply bg-red-50 dark:bg-red-900/20 border-l-4 border-red-400 p-4 text-red-700 dark:text-red-300;
+}
+
+.alert-info {
+    @apply bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 p-4 text-blue-700 dark:text-blue-300;
+}
+
+/* Gallery Styles */
+.gallery-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.gallery-item {
+    @apply relative overflow-hidden rounded-lg aspect-square cursor-pointer group;
+}
+
+.gallery-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center;
+}
+
+/* Stats Cards */
+.stat-card {
+    @apply bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+}
+
+.stat-number {
+    @apply text-3xl font-bold text-primary-600 dark:text-primary-400;
+}
+
+.stat-label {
+    @apply text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide;
+}
+
+/* Responsive Typography */
+.heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+}
+
+.heading-lg {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+}
+
+.heading-md {
+    @apply text-xl md:text-2xl font-semibold;
+}
+
+.text-body {
+    @apply text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
