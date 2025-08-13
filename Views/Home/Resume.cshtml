@@ -1,0 +1,422 @@
+@model PortfolioWebsite.Models.AboutViewModel
+@{
+    ViewData["Title"] = "Resume - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <!-- Print-friendly and download section -->
+    <div class="hidden-print bg-gradient-to-r from-blue-600 to-purple-700 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center text-white">
+                <div>
+                    <h1 class="text-2xl font-bold mb-2">Professional Resume</h1>
+                    <p class="text-blue-100">Download or print my latest resume</p>
+                </div>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <button onclick="window.print()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-print mr-2"></i>
+                        Print Resume
+                    </button>
+                    <a href="@Url.Action("DownloadResume")" class="bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors">
+                        <i class="fas fa-download mr-2"></i>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto resume-content">
+            
+            <!-- Header Section -->
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-8">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <div class="flex-shrink-0">
+                        @if (!string.IsNullOrEmpty(Model.PersonalInfo?.ProfileImageUrl))
+                        {
+                            <img src="@Model.PersonalInfo.ProfileImageUrl" alt="Shakhoyat Shujon" 
+                                 class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover">
+                        }
+                        else
+                        {
+                            <div class="w-32 h-32 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold">
+                                SS
+                            </div>
+                        }
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h1 class="text-4xl font-bold mb-2">Shakhoyat Shujon</h1>
+                        <h2 class="text-xl text-blue-200 mb-4">Aspiring Data Scientist | Computer Science Engineering Student</h2>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Computer Science Engineering student at KUET specializing in data science, machine learning, and IoT systems. 
+                            Active Kaggle competitor with 700+ problems solved, passionate about transforming data into actionable insights.
+                        </p>
+                        
+                        <!-- Contact Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope w-5 text-blue-300 mr-2"></i>
+                                <span>skt104.shujon@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt w-5 text-blue-300 mr-2"></i>
+                                <span>Khulna, Bangladesh</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-linkedin w-5 text-blue-300 mr-2"></i>
+                                <span>linkedin.com/in/shakhoyatshujon</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-github w-5 text-blue-300 mr-2"></i>
+                                <span>github.com/Shakhoyat</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-kaggle w-5 text-blue-300 mr-2"></i>
+                                <span>kaggle.com/shakhoyatshujon</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap w-5 text-blue-300 mr-2"></i>
+                                <span>KUET - CSE Student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Left Column -->
+                    <div class="lg:col-span-1 space-y-6">
+                        
+                        <!-- Technical Skills -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">
+                                <i class="fas fa-code text-blue-600 mr-2"></i>
+                                Technical Skills
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-2">Programming Languages</h4>
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Python</span>
+                                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">JavaScript</span>
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">TypeScript</span>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Java</span>
+                                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">C++</span>
+                                        <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs">SQL</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-2">Data Science & ML</h4>
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Pandas</span>
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">NumPy</span>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Scikit-Learn</span>
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">TensorFlow</span>
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">PyTorch</span>
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">OpenCV</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-2">Web Technologies</h4>
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs">React</span>
+                                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">Next.js</span>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Node.js</span>
+                                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">Express.js</span>
+                                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">ASP.NET Core</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-2">Databases & Tools</h4>
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">MySQL</span>
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">PostgreSQL</span>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">MongoDB</span>
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Git</span>
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Streamlit</span>
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Jupyter</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Achievements -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-green-500">
+                                <i class="fas fa-trophy text-green-600 mr-2"></i>
+                                Key Achievements
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>
+                                    <span>700+ Programming Problems Solved</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-medal text-bronze mr-2 mt-1"></i>
+                                    <span>Kaggle Competition Participant</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-graduation-cap text-blue-500 mr-2 mt-1"></i>
+                                    <span>HSC Board Scholarship (2021)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-500 mr-2 mt-1"></i>
+                                    <span>CGPA Progression: 3.67 → 3.78 → 3.70</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-project-diagram text-purple-500 mr-2 mt-1"></i>
+                                    <span>15+ Technical Projects Completed</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- Certifications -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-purple-500">
+                                <i class="fas fa-certificate text-purple-600 mr-2"></i>
+                                Certifications
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-brain text-blue-500 mr-2 mt-1"></i>
+                                    <span>Deep Learning Specialization (Expected)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-robot text-green-500 mr-2 mt-1"></i>
+                                    <span>Machine Learning Foundations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-code text-orange-500 mr-2 mt-1"></i>
+                                    <span>Data Science with Python</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        
+                        <!-- Education -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">
+                                <i class="fas fa-university text-blue-600 mr-2"></i>
+                                Education
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">Bachelor of Science in Computer Science & Engineering</h4>
+                                    <p class="text-blue-600 font-medium">Khulna University of Engineering & Technology (KUET)</p>
+                                    <p class="text-gray-600 text-sm">2022 - Present | Current CGPA: 3.70</p>
+                                    <p class="text-gray-700 text-sm mt-2">
+                                        Academic progression: 1st Year (3.67) → 2nd Year (3.78) → Current (3.70). 
+                                        Specializing in Data Science, Machine Learning, and IoT Systems.
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">Higher Secondary Certificate (HSC)</h4>
+                                    <p class="text-green-600 font-medium">Notre Dame College, Dhaka</p>
+                                    <p class="text-gray-600 text-sm">2021 | Board Scholarship Recipient</p>
+                                    <p class="text-gray-700 text-sm mt-2">
+                                        Achieved outstanding results and received board scholarship for academic excellence.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Professional Focus & Experience -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-green-500">
+                                <i class="fas fa-briefcase text-green-600 mr-2"></i>
+                                Professional Focus & Experience
+                            </h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Current Focus</h4>
+                                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 ml-4">
+                                        <li>Participating in Kaggle competitions and building EDA pipelines with Python, Pandas, and OpenCV</li>
+                                        <li>Collaborating on open-source data science projects</li>
+                                        <li>Building intelligent solutions using machine learning algorithms</li>
+                                        <li>Developing full-stack applications with modern web technologies</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Research & Exploration</h4>
+                                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 ml-4">
+                                        <li>Experimenting with IoT devices and integrating sensor data with ML models</li>
+                                        <li>Researching edge computing for real-time analytics</li>
+                                        <li>Exploring computer vision applications and deep learning architectures</li>
+                                        <li>Working on predictive analytics and data visualization projects</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Future Direction</h4>
+                                    <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 ml-4">
+                                        <li>Advancing skills in REST APIs and Next.js for deploying scalable, end-to-end ML applications</li>
+                                        <li>Exploring cloud platforms (AWS, GCP) for production ML workflows</li>
+                                        <li>Developing expertise in MLOps and model deployment strategies</li>
+                                        <li>Contributing to AI research and innovation in data science</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Featured Projects -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-purple-500">
+                                <i class="fas fa-rocket text-purple-600 mr-2"></i>
+                                Featured Projects
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">🏥 Doctor Appointment Desktop Application</h4>
+                                    <p class="text-blue-600 font-medium text-sm">Java • JavaFX • MySQL</p>
+                                    <p class="text-gray-700 text-sm mt-1">
+                                        Comprehensive healthcare management system with appointment optimization and predictive resource allocation.
+                                        Features real-time scheduling, patient management, and automated notifications.
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">📊 Data Analysis Platform</h4>
+                                    <p class="text-green-600 font-medium text-sm">Python • Streamlit • Pandas</p>
+                                    <p class="text-gray-700 text-sm mt-1">
+                                        Automated EDA pipeline reducing exploration time by 70%. Includes interactive visualizations,
+                                        statistical analysis, and machine learning model integration.
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-cyan-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">🌤️ Weather Observation WebApp</h4>
+                                    <p class="text-cyan-600 font-medium text-sm">React • TypeScript • APIs</p>
+                                    <p class="text-gray-700 text-sm mt-1">
+                                        Real-time weather analytics with geospatial forecasting. Features responsive design,
+                                        interactive maps, and historical data analysis.
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">💼 Personal Portfolio Website</h4>
+                                    <p class="text-purple-600 font-medium text-sm">ASP.NET Core • Entity Framework • Tailwind CSS</p>
+                                    <p class="text-gray-700 text-sm mt-1">
+                                        Modern, responsive portfolio showcasing projects, achievements, and technical skills.
+                                        Features admin panel, database integration, and dynamic content management.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Competitive Programming -->
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-orange-500">
+                                <i class="fas fa-code text-orange-600 mr-2"></i>
+                                Competitive Programming & Problem Solving
+                            </h3>
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <div class="grid grid-cols-2 gap-4 text-center">
+                                    <div>
+                                        <div class="text-2xl font-bold text-orange-600">700+</div>
+                                        <div class="text-sm text-gray-600">Problems Solved</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-blue-600">Multiple</div>
+                                        <div class="text-sm text-gray-600">Platforms</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-sm mt-3">
+                                    Active participant in competitive programming across various platforms. 
+                                    Strong problem-solving skills in algorithms, data structures, and mathematical concepts.
+                                    Experience in contest environments and time-constrained problem solving.
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="border-t pt-6 mt-8 text-center text-gray-600 text-sm">
+                    <p>Generated on @DateTime.Now.ToString("MMMM dd, yyyy") | Transforming data into actionable insights through machine learning and statistical analysis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Print Styles -->
+<style>
+    @@media print {
+        body * {
+            visibility: hidden;
+        }
+        
+        .resume-content, .resume-content * {
+            visibility: visible;
+        }
+        
+        .resume-content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        
+        .hidden-print {
+            display: none !important;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        .no-print {
+            display: none !important;
+        }
+        
+        /* Ensure good contrast for printing */
+        .bg-gradient-to-r {
+            background: #1e293b !important;
+        }
+        
+        /* Adjust colors for print */
+        .text-blue-200 {
+            color: #93c5fd !important;
+        }
+        
+        .text-gray-300 {
+            color: #d1d5db !important;
+        }
+    }
+    
+    /* Custom styles for better appearance */
+    .resume-content {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .medal {
+        background: linear-gradient(45deg, #cd7f32, #e6a85c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+</style>
+
+<script>
+    // Add download functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add smooth scroll for print button
+        const printBtn = document.querySelector('[onclick="window.print()"]');
+        if (printBtn) {
+            printBtn.addEventListener('click', function() {
+                setTimeout(() => {
+                    window.print();
+                }, 100);
+            });
+        }
+    });
+</script>
