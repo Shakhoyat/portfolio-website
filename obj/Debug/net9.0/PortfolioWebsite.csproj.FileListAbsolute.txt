@@ -234,3 +234,6 @@ C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\Portf
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\PortfolioWebsite.genruntimeconfig.cache
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\ref\PortfolioWebsite.dll
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\ly0ul0w0s2-x0o6rcn57k.gz
+C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\391lojhgfh-56nitlgz08.gz
+C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\c47qrm8f27-xdgnszsi7l.gz
+C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\aarvhsamkr-v97pymrl9r.gz
