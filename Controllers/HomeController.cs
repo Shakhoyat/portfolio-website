@@ -65,7 +65,13 @@ public class HomeController : Controller
     public async Task<IActionResult> Projects()
     {
         var projects = await _portfolioService.GetProjectsAsync();
-        return View(projects);
+        var viewModel = new ProjectsViewModel
+        {
+            Projects = projects,
+            SelectedCategory = "",
+            SearchTerm = ""
+        };
+        return View(viewModel);
     }
 
     public async Task<IActionResult> ProjectDetails(int id)
@@ -114,18 +120,34 @@ public class HomeController : Controller
     public async Task<IActionResult> Datasets()
     {
         var datasets = await _portfolioService.GetDatasetsAsync();
-        return View(datasets);
+        var viewModel = new DatasetsViewModel
+        {
+            Datasets = datasets,
+            SearchTerm = ""
+        };
+        return View(viewModel);
     }
 
     public async Task<IActionResult> Gallery()
     {
         var photos = await _portfolioService.GetPhotoGalleryAsync();
-        return View(photos);
+        var viewModel = new GalleryViewModel
+        {
+            Photos = photos,
+            SelectedCategory = ""
+        };
+        return View(viewModel);
     }
 
-    public IActionResult Contact()
+    public async Task<IActionResult> Contact()
     {
-        return View(new VisitorFeedback());
+        var viewModel = new ContactViewModel
+        {
+            Feedback = new VisitorFeedback(),
+            PersonalInfo = await _portfolioService.GetPersonalInfoAsync(),
+            SocialLinks = await _portfolioService.GetSocialLinksAsync()
+        };
+        return View(viewModel);
     }
 
     [HttpPost]
@@ -143,7 +165,13 @@ public class HomeController : Controller
             return RedirectToAction(nameof(Contact));
         }
 
-        return View(feedback);
+        var viewModel = new ContactViewModel
+        {
+            Feedback = feedback,
+            PersonalInfo = await _portfolioService.GetPersonalInfoAsync(),
+            SocialLinks = await _portfolioService.GetSocialLinksAsync()
+        };
+        return View(viewModel);
     }
 
     [HttpGet]
