@@ -32,15 +32,15 @@ namespace PortfolioWebsite.Areas.Admin.Controllers
                 personalInfo = new PersonalInfo
                 {
                     Id = 1,
-                    Name = "",
+                    FullName = "",
                     Title = "",
-                    Subtitle = "",
                     Bio = "",
-                    Location = "",
+                    AboutMe = "",
                     Email = "",
                     Phone = "",
-                    ResumeUrl = "",
+                    Location = "",
                     ProfileImageUrl = "",
+                    ResumeUrl = "",
                     IsActive = true
                 };
             }

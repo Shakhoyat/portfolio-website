@@ -10,6 +10,7 @@ namespace PortfolioWebsite.Models
         public IEnumerable<Skill> Skills { get; set; }
         public IEnumerable<Publication> RecentPublications { get; set; }
         public IEnumerable<SocialLink> SocialLinks { get; set; }
+        public IEnumerable<Achievement> RecentAchievements { get; set; }
     }
 
     public class AboutViewModel

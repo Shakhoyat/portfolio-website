@@ -25,7 +25,8 @@ public class HomeController : Controller
             FeaturedProjects = await _portfolioService.GetFeaturedProjectsAsync(),
             Skills = await _portfolioService.GetSkillsAsync(),
             RecentPublications = (await _portfolioService.GetPublicationsAsync()).Take(3),
-            SocialLinks = await _portfolioService.GetSocialLinksAsync()
+            SocialLinks = await _portfolioService.GetSocialLinksAsync(),
+            RecentAchievements = (await _portfolioService.GetAchievementsAsync()).Take(3)
         };
 
         return View(viewModel);
