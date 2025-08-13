@@ -1,0 +1,261 @@
+@using PortfolioWebsite.Areas.Admin.Controllers
+@model KaggleManagementViewModel
+@{
+    ViewData["Title"] = "Kaggle Management";
+}
+
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Kaggle Integration</h1>
+                <p class="text-gray-600 dark:text-gray-400">Manage your Kaggle achievements and competitions</p>
+            </div>
+            <div class="flex space-x-4">
+                <a asp-action="Profile" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-user mr-2"></i>
+                    View Profile
+                </a>
+                <form asp-action="SyncKaggleData" method="post" class="inline">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        Sync Data
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-trophy text-3xl text-yellow-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Achievements</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.TotalAchievements</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-medal text-3xl text-blue-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Competitions</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.CompetitionAchievements</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-database text-3xl text-green-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Datasets</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-white">@Model.DatasetAchievements</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex space-x-1">
+                            <i class="fas fa-medal text-yellow-500"></i>
+                            <i class="fas fa-medal text-gray-400"></i>
+                            <i class="fas fa-medal text-orange-600"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Medals</p>
+                        <p class="text-2xl font-semibold text-gray-900 dark:text-white">@(Model.GoldMedals + Model.SilverMedals + Model.BronzeMedals)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medal Breakdown -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-8 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Medal Distribution</h3>
+            <div class="flex space-x-8">
+                <div class="flex items-center">
+                    <i class="fas fa-medal text-yellow-500 mr-2"></i>
+                    <span class="text-gray-700 dark:text-gray-300">Gold: @Model.GoldMedals</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-medal text-gray-400 mr-2"></i>
+                    <span class="text-gray-700 dark:text-gray-300">Silver: @Model.SilverMedals</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-medal text-orange-600 mr-2"></i>
+                    <span class="text-gray-700 dark:text-gray-300">Bronze: @Model.BronzeMedals</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sync Status -->
+        @if (Model.LastSync != null)
+        {
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-8 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Last Sync Status</h3>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        @if (Model.LastSync.IsSuccessful)
+                        {
+                            <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                            <div>
+                                <p class="text-green-700 dark:text-green-400 font-medium">Sync Successful</p>
+                                <p class="text-sm text-gray-500">@Model.LastSync.NewAchievements new, @Model.LastSync.UpdatedAchievements updated</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
+                            <div>
+                                <p class="text-red-700 dark:text-red-400 font-medium">Sync Failed</p>
+                                <p class="text-sm text-gray-500">@Model.LastSync.ErrorMessage</p>
+                            </div>
+                        }
+                    </div>
+                    <p class="text-sm text-gray-500">@Model.LastSync.LastSyncDate.ToString("MMM dd, yyyy 'at' HH:mm")</p>
+                </div>
+            </div>
+        }
+
+        <!-- Achievements List -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Kaggle Achievements</h3>
+            </div>
+            
+            @if (Model.Achievements.Any())
+            {
+                <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                    @foreach (var achievement in Model.Achievements)
+                    {
+                        <div class="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <i class="@achievement.TypeIcon"></i>
+                                        <h4 class="text-lg font-medium text-gray-900 dark:text-white">@achievement.Title</h4>
+                                        @if (!string.IsNullOrEmpty(achievement.Medal))
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium @achievement.Medal.ToLower() switch 
+                                                { "gold" => "bg-yellow-100 text-yellow-800", "silver" => "bg-gray-100 text-gray-800", "bronze" => "bg-orange-100 text-orange-800", _ => "bg-blue-100 text-blue-800" }">
+                                                <i class="@achievement.MedalIcon mr-1"></i>
+                                                @achievement.Medal
+                                            </span>
+                                        }
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+                                            @achievement.Type
+                                        </span>
+                                    </div>
+                                    
+                                    <p class="text-gray-600 dark:text-gray-400 mb-3">@achievement.Description</p>
+                                    
+                                    <div class="flex items-center space-x-4 text-sm text-gray-500">
+                                        @if (achievement.Rank.HasValue && achievement.TotalParticipants.HasValue)
+                                        {
+                                            <span>Rank: @achievement.Rank/@achievement.TotalParticipants (@achievement.PercentileRank)</span>
+                                        }
+                                        @if (achievement.Score.HasValue)
+                                        {
+                                            <span>Score: @achievement.Score.Value.ToString("F4")</span>
+                                        }
+                                        <span>@achievement.AchievedDate.ToString("MMM dd, yyyy")</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-2 ml-4">
+                                    @if (achievement.IsFeatured)
+                                    {
+                                        <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 text-green-800">
+                                            <i class="fas fa-star mr-1"></i>
+                                            Featured
+                                        </span>
+                                    }
+                                    
+                                    <button onclick="toggleFeatured(@achievement.Id)" class="text-gray-400 hover:text-yellow-500 transition-colors" title="Toggle Featured">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                    
+                                    <button onclick="toggleActive(@achievement.Id)" class="text-gray-400 hover:text-green-500 transition-colors" title="Toggle Active">
+                                        <i class="fas fa-eye@(achievement.IsActive ? "" : "-slash")"></i>
+                                    </button>
+                                    
+                                    @if (!string.IsNullOrEmpty(achievement.ExternalUrl))
+                                    {
+                                        <a href="@achievement.ExternalUrl" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors" title="View on Kaggle">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-12">
+                    <i class="fas fa-trophy text-gray-400 text-4xl mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">No Kaggle achievements found</h3>
+                    <p class="text-gray-500 mb-4">Sync your Kaggle data to display your achievements here.</p>
+                    <form asp-action="SyncKaggleData" method="post" class="inline">
+                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            Sync Kaggle Data
+                        </button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    async function toggleFeatured(id) {
+        try {
+            const response = await fetch(`/Admin/Kaggle/ToggleFeatured/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value
+                }
+            });
+            
+            if (response.ok) {
+                location.reload();
+            }
+        } catch (error) {
+            console.error('Error toggling featured status:', error);
+        }
+    }
+    
+    async function toggleActive(id) {
+        try {
+            const response = await fetch(`/Admin/Kaggle/ToggleActive/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value
+                }
+            });
+            
+            if (response.ok) {
+                location.reload();
+            }
+        } catch (error) {
+            console.error('Error toggling active status:', error);
+        }
+    }
+</script>
