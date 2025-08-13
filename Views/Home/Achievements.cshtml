@@ -111,88 +111,91 @@
         <!-- Achievements Grid -->
         <div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Kaggle Achievements -->
-            @foreach (var achievement in Model.KaggleAchievements)
+            @if (Model.KaggleAchievements != null)
             {
-                <div class="achievement-card kaggle-achievement @achievement.Type.ToLower()-achievement bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-6"
-                     data-category="Kaggle" 
-                     data-type="@achievement.Type" 
-                     data-date="@achievement.AchievedDate.ToString("yyyy-MM-dd")"
-                     data-rank="@(achievement.Rank ?? 9999)">
-                    
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            @if (achievement.Medal == "Gold")
-                            {
-                                <i class="fas fa-medal text-yellow-500 text-2xl mr-2"></i>
-                            }
-                            else if (achievement.Medal == "Silver")
-                            {
-                                <i class="fas fa-medal text-gray-400 text-2xl mr-2"></i>
-                            }
-                            else if (achievement.Medal == "Bronze")
-                            {
-                                <i class="fas fa-medal text-orange-600 text-2xl mr-2"></i>
-                            }
-                            else
-                            {
-                                <i class="fas fa-trophy text-blue-500 text-2xl mr-2"></i>
-                            }
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
-                                @achievement.Type
-                            </span>
-                        </div>
-                        @if (achievement.Rank.HasValue)
-                        {
-                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">
-                                #@achievement.Rank
-                            </span>
-                        }
-                    </div>
-                    
-                    <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-lg leading-tight">@achievement.Title</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">@achievement.Description</p>
-                    
-                    <div class="space-y-2 mb-4">
-                        @if (achievement.Score.HasValue)
-                        {
-                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                                <i class="fas fa-chart-line mr-2"></i>
-                                Score: @achievement.Score.Value.ToString("F4")
+                foreach (var achievement in Model.KaggleAchievements)
+                {
+                    <div class="achievement-card kaggle-achievement @achievement.Type.ToLower()-achievement bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-6"
+                         data-category="Kaggle" 
+                         data-type="@achievement.Type" 
+                         data-date="@achievement.AchievedDate.ToString("yyyy-MM-dd")"
+                         data-rank="@(achievement.Rank ?? 9999)">
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                @if (achievement.Medal == "Gold")
+                                {
+                                    <i class="fas fa-medal text-yellow-500 text-2xl mr-2"></i>
+                                }
+                                else if (achievement.Medal == "Silver")
+                                {
+                                    <i class="fas fa-medal text-gray-400 text-2xl mr-2"></i>
+                                }
+                                else if (achievement.Medal == "Bronze")
+                                {
+                                    <i class="fas fa-medal text-orange-600 text-2xl mr-2"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-trophy text-blue-500 text-2xl mr-2"></i>
+                                }
+                                <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                                    @achievement.Type
+                                </span>
                             </div>
-                        }
-                        @if (achievement.TotalParticipants.HasValue)
-                        {
-                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                                <i class="fas fa-users mr-2"></i>
-                                @achievement.TotalParticipants participants
-                            </div>
-                        }
-                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                            <i class="fas fa-calendar mr-2"></i>
-                            @achievement.AchievedDate.ToString("MMMM yyyy")
-                        </div>
-                    </div>
-                    
-                    @if (!string.IsNullOrEmpty(achievement.Tags))
-                    {
-                        <div class="flex flex-wrap gap-1 mb-4">
-                            @foreach (var tag in achievement.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                            @if (achievement.Rank.HasValue)
                             {
-                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded text-xs">
-                                    @tag.Trim()
+                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">
+                                    #@achievement.Rank
                                 </span>
                             }
                         </div>
-                    }
-                    
-                    @if (!string.IsNullOrEmpty(achievement.ExternalUrl))
-                    {
-                        <a href="@achievement.ExternalUrl" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
-                            <i class="fas fa-external-link-alt mr-2"></i>
-                            View Details
-                        </a>
-                    }
-                </div>
+                        
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-lg leading-tight">@achievement.Title</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">@achievement.Description</p>
+                        
+                        <div class="space-y-2 mb-4">
+                            @if (achievement.Score.HasValue)
+                            {
+                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    Score: @achievement.Score.Value.ToString("F4")
+                                </div>
+                            }
+                            @if (achievement.TotalParticipants.HasValue)
+                            {
+                                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-users mr-2"></i>
+                                    @achievement.TotalParticipants participants
+                                </div>
+                            }
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar mr-2"></i>
+                                @achievement.AchievedDate.ToString("MMMM yyyy")
+                            </div>
+                        </div>
+                        
+                        @if (!string.IsNullOrEmpty(achievement.Tags))
+                        {
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                @foreach (var tag in achievement.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded text-xs">
+                                        @tag.Trim()
+                                    </span>
+                                }
+                            </div>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(achievement.ExternalUrl))
+                        {
+                            <a href="@achievement.ExternalUrl" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                View Details
+                            </a>
+                        }
+                    </div>
+                }
             }
 
             <!-- Traditional Achievements -->
