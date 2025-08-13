@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Portfolio Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Admin Sidebar -->
+    <div class="flex h-screen">
+        <div class="w-64 bg-gray-900 text-white flex flex-col">
+            <div class="p-6">
+                <h2 class="text-xl font-bold">Portfolio Admin</h2>
+                <p class="text-gray-400 text-sm">Content Management</p>
+            </div>
+            
+            <nav class="flex-1 px-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-tachometer-alt mr-3"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="PersonalInfo" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-user mr-3"></i>
+                            Personal Info
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Projects" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-project-diagram mr-3"></i>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Skills" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-cogs mr-3"></i>
+                            Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Achievements" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-trophy mr-3"></i>
+                            Achievements
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Publications" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-book mr-3"></i>
+                            Publications
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Experience" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-briefcase mr-3"></i>
+                            Experience
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="SocialLinks" asp-action="Index" 
+                           class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                            <i class="fas fa-share-alt mr-3"></i>
+                            Social Links
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="p-4 border-t border-gray-700">
+                <a href="/" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg">
+                    <i class="fas fa-globe mr-3"></i>
+                    View Portfolio
+                </a>
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
+                    <button type="submit" class="w-full flex items-center px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg mt-2">
+                        <i class="fas fa-sign-out-alt mr-3"></i>
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+                <div class="px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">@ViewData["Title"]</h1>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm text-gray-600 dark:text-gray-400">Welcome, Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 dark:bg-gray-900">
+                <div class="p-6">
+                    @RenderBody()
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
