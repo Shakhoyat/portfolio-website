@@ -40,8 +40,7 @@ namespace PortfolioWebsite.Areas.Admin.Controllers
                     Phone = "",
                     Location = "",
                     ProfileImageUrl = "",
-                    ResumeUrl = "",
-                    IsActive = true
+                    ResumeUrl = ""
                 };
             }
             return View(personalInfo);
