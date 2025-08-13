@@ -1,0 +1,321 @@
+@model AboutViewModel
+@{
+    ViewData["Title"] = "About - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-xl text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-user text-blue-500 mr-3"></i>
+                About Me
+            </h1>
+            <p class="text-body max-w-3xl mx-auto">
+                Computer Science Engineering student at KUET specializing in data science, machine learning, and IoT systems. Active in competitive programming and Kaggle competitions with a focus on building intelligent solutions.
+            </p>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Hi, I'm Shakhoyat Shujon</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
+                        An aspiring data scientist passionate about deep learning and IoT systems. Currently pursuing Computer Science & Engineering at Khulna University of Engineering & Technology (KUET) with a focus on machine learning research and practical applications.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        I'm an active Kaggle competitor who has solved 700+ programming problems and enjoys participating in data science competitions. My work spans across healthcare applications, weather forecasting systems, and automated data analysis platforms.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.kaggle.com/shakhoyatshujon" target="_blank" class="btn-modern">
+                            <i class="fab fa-kaggle mr-2"></i>
+                            Kaggle Profile
+                        </a>
+                        <a href="https://github.com/Shakhoyat" target="_blank" class="btn-outline">
+                            <i class="fab fa-github mr-2"></i>
+                            GitHub
+                        </a>
+                        <a href="mailto:skt104.shujon@gmail.com" class="btn-outline">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Email Me
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center">
+                            @if (Model.PersonalInfo?.ProfileImageUrl != null)
+                            {
+                                <img src="@Model.PersonalInfo.ProfileImageUrl" alt="Shakhoyat Shujon" class="w-72 h-72 rounded-full object-cover border-4 border-white shadow-lg">
+                            }
+                            else
+                            {
+                                <i class="fas fa-user text-6xl text-white"></i>
+                            }
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">🛠️ Technical Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Programming Languages</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">Python</span>
+                        <span class="skill-badge bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300">JavaScript</span>
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">TypeScript</span>
+                        <span class="skill-badge bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300">SQL</span>
+                        <span class="skill-badge bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">Java</span>
+                        <span class="skill-badge bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300">C++</span>
+                    </div>
+                </div>
+
+                <!-- Data Science & ML -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Data Science & ML</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">Pandas</span>
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">NumPy</span>
+                        <span class="skill-badge bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">Scikit-Learn</span>
+                        <span class="skill-badge bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300">TensorFlow</span>
+                        <span class="skill-badge bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300">PyTorch</span>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Web Development</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300">React</span>
+                        <span class="skill-badge bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300">Next.js</span>
+                        <span class="skill-badge bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">Node.js</span>
+                        <span class="skill-badge bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300">Express.js</span>
+                        <span class="skill-badge bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300">ASP.NET Core</span>
+                    </div>
+                </div>
+
+                <!-- Visualization & Tools -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Visualization & Tools</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">Matplotlib</span>
+                        <span class="skill-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300">Plotly</span>
+                        <span class="skill-badge bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300">Streamlit</span>
+                        <span class="skill-badge bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">Jupyter</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Databases</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">MySQL</span>
+                        <span class="skill-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300">PostgreSQL</span>
+                        <span class="skill-badge bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">MongoDB</span>
+                        <span class="skill-badge bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300">SQL Server</span>
+                    </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Development Tools</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="skill-badge bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">Git</span>
+                        <span class="skill-badge bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300">GitHub</span>
+                        <span class="skill-badge bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">VS Code</span>
+                        <span class="skill-badge bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Focus Section -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">🎯 Professional Focus</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Current Focus -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-cogs text-blue-600 dark:text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">🔄 Current Focus</h3>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+                        <li>• Participating in Kaggle competitions</li>
+                        <li>• Building EDA pipelines with Python, Pandas, and OpenCV</li>
+                        <li>• Collaborating on open-source data science projects</li>
+                    </ul>
+                </div>
+
+                <!-- Exploration -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-search text-purple-600 dark:text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">🚀 Exploration</h3>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+                        <li>• Experimenting with IoT devices</li>
+                        <li>• Integrating sensor data with ML models</li>
+                        <li>• Researching edge computing for real-time analytics</li>
+                    </ul>
+                </div>
+
+                <!-- Future Direction -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-rocket text-green-600 dark:text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">💡 Future Direction</h3>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+                        <li>• Advancing skills in REST APIs and Next.js</li>
+                        <li>• Deploying scalable, end-to-end ML applications</li>
+                        <li>• Exploring cloud platforms (AWS, GCP) for production</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Experience -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Education -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    <i class="fas fa-graduation-cap text-blue-500 mr-2"></i>
+                    Education
+                </h2>
+                
+                @if (Model.Educations?.Any() == true)
+                {
+                    @foreach (var education in Model.Educations)
+                    {
+                        <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+                            <h3 class="font-bold text-gray-900 dark:text-white text-lg">@education.Degree</h3>
+                            <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">@education.Institution</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                                @education.StartDate.ToString("yyyy") - @(education.EndDate?.ToString("yyyy") ?? "Present")
+                            </p>
+                            @if (education.GPA.HasValue)
+                            {
+                                <p class="text-green-600 dark:text-green-400 font-semibold">GPA: @education.GPA.Value.ToString("F2")</p>
+                            }
+                            @if (!string.IsNullOrEmpty(education.Description))
+                            {
+                                <p class="text-gray-600 dark:text-gray-400 mt-2">@education.Description</p>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Computer Science & Engineering</h3>
+                        <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">Khulna University of Engineering & Technology (KUET)</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">2022 - Present</p>
+                        <p class="text-green-600 dark:text-green-400 font-semibold">Current CGPA: 3.70</p>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Currently in 3rd year, 1st semester. Specializing in data science, machine learning, and software engineering.</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Higher Secondary Certificate (HSC)</h3>
+                        <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">Notre Dame College</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">2021</p>
+                        <p class="text-yellow-600 dark:text-yellow-400 font-semibold">Board Scholarship Recipient</p>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Science stream with outstanding academic performance.</p>
+                    </div>
+                }
+            </div>
+
+            <!-- Experience -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    <i class="fas fa-briefcase text-purple-500 mr-2"></i>
+                    Experience & Activities
+                </h2>
+                
+                @if (Model.Experiences?.Any() == true)
+                {
+                    @foreach (var experience in Model.Experiences)
+                    {
+                        <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+                            <h3 class="font-bold text-gray-900 dark:text-white text-lg">@experience.Position</h3>
+                            <h4 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">@experience.Company</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                                @experience.StartDate.ToString("yyyy") - @(experience.EndDate?.ToString("yyyy") ?? "Present")
+                            </p>
+                            @if (!string.IsNullOrEmpty(experience.Description))
+                            {
+                                <p class="text-gray-600 dark:text-gray-400">@experience.Description</p>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Kaggle Competitor</h3>
+                        <h4 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">Kaggle</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">2023 - Present</p>
+                        <p class="text-gray-600 dark:text-gray-400">Active participant in machine learning competitions with focus on data analysis and predictive modeling.</p>
+                    </div>
+                    
+                    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Competitive Programmer</h3>
+                        <h4 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">Various Platforms</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">2022 - Present</p>
+                        <p class="text-gray-600 dark:text-gray-400">Solved 700+ problems across multiple programming platforms, enhancing algorithmic thinking and problem-solving skills.</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Open Source Contributor</h3>
+                        <h4 class="font-semibold text-purple-600 dark:text-purple-400 mb-2">GitHub</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">2022 - Present</p>
+                        <p class="text-gray-600 dark:text-gray-400">Maintaining 47+ repositories showcasing projects in healthcare, web development, data science, and IoT applications.</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-bold mb-4">Let's Connect!</h2>
+            <p class="text-blue-100 mb-6">I'm always interested in discussing new opportunities, collaborations, or just connecting with fellow data science enthusiasts.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:skt104.shujon@gmail.com" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/shakhoyat-shujon-313ba5336/" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    <i class="fab fa-linkedin mr-2"></i>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .skill-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        display: inline-block;
+        margin: 0.25rem;
+    }
+</style>
