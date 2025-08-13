@@ -18,6 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
 .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 // Register custom services
 builder.Services.AddScoped<IPortfolioService, PortfolioService>();
@@ -58,6 +59,8 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 // Create database and seed data
 using (var scope = app.Services.CreateScope())
