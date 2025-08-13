@@ -160,7 +160,6 @@ C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\rjsmc
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\scopedcss\bundle\PortfolioWebsite.styles.css
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\scopedcss\projectbundle\PortfolioWebsite.bundle.scp.css
-C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\ly0ul0w0s2-b9sayid5wm.gz
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\9akci81aef-61n19gt1b8.gz
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\0nxoeoyy37-xtxxf3hu2r.gz
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\ylzl0g3gts-bqjiyaj88i.gz
@@ -234,3 +233,4 @@ C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\refin
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\PortfolioWebsite.pdb
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\PortfolioWebsite.genruntimeconfig.cache
 C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\ref\PortfolioWebsite.dll
+C:\Users\skt_pie\Documents\My Web Sites\portfolio-website\obj\Debug\net9.0\compressed\ly0ul0w0s2-it5d0pilht.gz
