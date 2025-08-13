@@ -1,0 +1,308 @@
+@model ContactViewModel
+@{
+    ViewData["Title"] = "Contact - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-xl text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-envelope text-blue-500 mr-3"></i>
+                Get In Touch
+            </h1>
+            <p class="text-body max-w-3xl mx-auto">
+                Ready to collaborate on exciting projects? Have questions about my work? I'd love to hear from you! 
+                Let's discuss how we can work together to bring innovative ideas to life.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    <i class="fas fa-paper-plane text-blue-500 mr-2"></i>
+                    Send Message
+                </h2>
+                
+                <form action="#" method="POST" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Full Name <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors"
+                                   placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Email Address <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors"
+                                   placeholder="your.email@example.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Subject <span class="text-red-500">*</span>
+                        </label>
+                        <select id="subject" name="subject" required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors">
+                            <option value="">Select a subject</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="job">Job Opportunity</option>
+                            <option value="mentorship">Mentorship Request</option>
+                            <option value="feedback">Feedback/Question</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Message <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="message" name="message" rows="6" required
+                                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors resize-vertical"
+                                  placeholder="Tell me about your project, question, or how we can work together..."></textarea>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <input type="checkbox" id="consent" name="consent" required
+                               class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="consent" class="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                            I agree to the processing of my personal data for the purpose of responding to my inquiry. <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-modern py-3 font-semibold">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Send Message
+                    </button>
+                </form>
+                
+                <!-- Success/Error Messages -->
+                <div id="form-message" class="mt-4 p-4 rounded-lg hidden">
+                    <div id="form-message-content"></div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="space-y-8">
+                <!-- Contact Details -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        <i class="fas fa-address-card text-green-500 mr-2"></i>
+                        Contact Information
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Email</h3>
+                                <a href="mailto:skt104.shujon@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                    skt104.shujon@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Location</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Khulna, Bangladesh</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Education</h3>
+                                <p class="text-gray-600 dark:text-gray-400">KUET - Computer Science & Engineering</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-orange-600 dark:text-orange-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Response Time</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Usually within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        <i class="fas fa-share-alt text-purple-500 mr-2"></i>
+                        Connect on Social Media
+                    </h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://linkedin.com/in/shakhoyatshujon" target="_blank" 
+                           class="flex items-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors group">
+                            <i class="fab fa-linkedin text-2xl text-blue-600 mr-3 group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Professional network</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/Shakhoyat" target="_blank" 
+                           class="flex items-center p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/70 transition-colors group">
+                            <i class="fab fa-github text-2xl text-gray-800 dark:text-gray-200 mr-3 group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">GitHub</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Code repositories</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://kaggle.com/shakhoyatshujon" target="_blank" 
+                           class="flex items-center p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-colors group">
+                            <i class="fab fa-kaggle text-2xl text-cyan-600 mr-3 group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Kaggle</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Data science competitions</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://twitter.com/shakhoyatshujon" target="_blank" 
+                           class="flex items-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors group">
+                            <i class="fab fa-twitter text-2xl text-blue-500 mr-3 group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Twitter</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Tech updates & thoughts</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Availability Status -->
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 text-white">
+                    <div class="flex items-center mb-4">
+                        <div class="w-3 h-3 bg-green-300 rounded-full mr-3 animate-pulse"></div>
+                        <h3 class="font-semibold">Currently Available</h3>
+                    </div>
+                    <p class="text-green-100 mb-4">
+                        I'm actively looking for internship opportunities and exciting projects to work on. 
+                        Open to collaborations, mentorship, and learning opportunities.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-400/20 text-green-100 px-3 py-1 rounded-full text-sm">Internships</span>
+                        <span class="bg-green-400/20 text-green-100 px-3 py-1 rounded-full text-sm">Projects</span>
+                        <span class="bg-green-400/20 text-green-100 px-3 py-1 rounded-full text-sm">Mentorship</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+                <i class="fas fa-question-circle text-yellow-500 mr-2"></i>
+                Frequently Asked Questions
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">What services do I offer?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            I specialize in web development, data analysis, machine learning projects, and can help with full-stack development using modern technologies.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">What's my availability?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            I'm currently a student, so I'm available for part-time projects, internships, and collaborative work that fits around my academic schedule.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">How do I prefer to work?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            I enjoy collaborative environments, remote work, and projects that challenge me to learn new technologies while applying my current skills.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">What's my response time?</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            I typically respond to emails within 24 hours. For urgent matters, feel free to mention it in the subject line.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const formData = new FormData(form);
+        const messageDiv = document.getElementById('form-message');
+        const messageContent = document.getElementById('form-message-content');
+        
+        // Simulate form submission (in real implementation, this would send to backend)
+        messageDiv.classList.remove('hidden');
+        messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700';
+        messageContent.innerHTML = `
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 dark:text-green-400 mr-2"></i>
+                <span class="text-green-800 dark:text-green-200 font-semibold">Message sent successfully!</span>
+            </div>
+            <p class="text-green-700 dark:text-green-300 text-sm mt-1">
+                Thank you for reaching out. I'll get back to you within 24 hours.
+            </p>
+        `;
+        
+        // Reset form
+        form.reset();
+        
+        // Create mailto link as fallback
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        const mailtoLink = `mailto:skt104.shujon@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        
+        // Auto-open email client after a short delay
+        setTimeout(() => {
+            window.location.href = mailtoLink;
+        }, 1000);
+    }
+    
+    // Add smooth scrolling for better UX
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add focus states for better accessibility
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-blue-500', 'ring-opacity-50');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-blue-500', 'ring-opacity-50');
+            });
+        });
+    });
+</script>

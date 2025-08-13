@@ -1,0 +1,400 @@
+@model GalleryViewModel
+@{
+    ViewData["Title"] = "Gallery - Shakhoyat Shujon";
+}
+
+<div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="heading-xl text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-images text-purple-500 mr-3"></i>
+                Project Gallery
+            </h1>
+            <p class="text-body max-w-3xl mx-auto">
+                Visual showcase of my development journey, featuring project screenshots, data visualizations, achievements, and behind-the-scenes moments from coding adventures.
+            </p>
+        </div>
+
+        <!-- Filter Categories -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button onclick="filterGallery('all')" class="filter-btn active" data-filter="all">
+                <i class="fas fa-th mr-2"></i>All
+            </button>
+            <button onclick="filterGallery('projects')" class="filter-btn" data-filter="projects">
+                <i class="fas fa-code mr-2"></i>Projects
+            </button>
+            <button onclick="filterGallery('visualizations')" class="filter-btn" data-filter="visualizations">
+                <i class="fas fa-chart-bar mr-2"></i>Data Viz
+            </button>
+            <button onclick="filterGallery('achievements')" class="filter-btn" data-filter="achievements">
+                <i class="fas fa-trophy mr-2"></i>Achievements
+            </button>
+            <button onclick="filterGallery('learning')" class="filter-btn" data-filter="learning">
+                <i class="fas fa-graduation-cap mr-2"></i>Learning
+            </button>
+            <button onclick="filterGallery('events')" class="filter-btn" data-filter="events">
+                <i class="fas fa-calendar mr-2"></i>Events
+            </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- Project Screenshots -->
+            <div class="gallery-item" data-category="projects" data-title="Doctor Appointment System" data-description="Full-stack healthcare management application with real-time appointment booking">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-blue-400 to-purple-600">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-user-md text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">React</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Doctor Appointment System</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Healthcare management app</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization -->
+            <div class="gallery-item" data-category="visualizations" data-title="COVID-19 Data Analysis" data-description="Interactive dashboard showing pandemic trends and vaccination progress">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-red-400 to-orange-600">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-chart-line text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">COVID-19 Analytics</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Interactive data dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather App -->
+            <div class="gallery-item" data-category="projects" data-title="Weather Forecast App" data-description="Real-time weather application with 7-day forecast and location services">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-blue-500 to-cyan-500">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-cloud-sun text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Weather Forecast App</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Real-time weather service</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kaggle Achievement -->
+            <div class="gallery-item" data-category="achievements" data-title="Kaggle Bronze Medal" data-description="Achieved bronze medal in machine learning competition with 85% accuracy">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-amber-400 to-orange-500">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-medal text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-amber-500 text-white px-2 py-1 rounded text-xs">Kaggle</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Kaggle Bronze Medal</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">ML competition achievement</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machine Learning Model -->
+            <div class="gallery-item" data-category="visualizations" data-title="ML Model Performance" data-description="Visualization of neural network training progress and accuracy metrics">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-green-500 to-emerald-600">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-brain text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Neural Network Training</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Deep learning visualization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hackathon Event -->
+            <div class="gallery-item" data-category="events" data-title="University Hackathon 2024" data-description="Team collaboration during 48-hour coding challenge at KUET">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-purple-500 to-pink-600">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-users text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs">Event</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">KUET Hackathon 2024</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">48-hour coding challenge</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Certificate -->
+            <div class="gallery-item" data-category="learning" data-title="Deep Learning Specialization" data-description="Completed Andrew Ng's Deep Learning course series on Coursera">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-indigo-500 to-blue-600">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-certificate text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-indigo-500 text-white px-2 py-1 rounded text-xs">Coursera</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Deep Learning Specialization</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Andrew Ng certification</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Website -->
+            <div class="gallery-item" data-category="projects" data-title="Portfolio Website" data-description="Personal portfolio built with ASP.NET Core and modern design principles">
+                <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48 bg-gradient-to-br from-gray-600 to-gray-800">
+                        <div class="absolute inset-0 flex items-center justify-center text-white">
+                            <i class="fas fa-globe text-6xl opacity-50"></i>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <span class="bg-gray-600 text-white px-2 py-1 rounded text-xs">ASP.NET</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Portfolio Website</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Personal showcase platform</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Gallery Items from Model -->
+            @if (Model.GalleryItems?.Any() == true)
+            {
+                @foreach (var item in Model.GalleryItems)
+                {
+                    <div class="gallery-item" data-category="@item.Category.ToLower()" data-title="@item.Title" data-description="@item.Description">
+                        <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="relative overflow-hidden h-48">
+                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                {
+                                    <img src="@item.ImageUrl" alt="@item.Title" class="w-full h-full object-cover">
+                                }
+                                else
+                                {
+                                    <div class="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center text-white">
+                                        <i class="fas fa-image text-6xl opacity-50"></i>
+                                    </div>
+                                }
+                                @if (!string.IsNullOrEmpty(item.Technology))
+                                {
+                                    <div class="absolute top-3 right-3">
+                                        <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">@item.Technology</span>
+                                    </div>
+                                }
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">@item.Title</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">@item.Description</p>
+                                @if (item.CreatedDate.HasValue)
+                                {
+                                    <p class="text-gray-500 dark:text-gray-500 text-xs mt-2">
+                                        <i class="fas fa-calendar mr-1"></i>
+                                        @item.CreatedDate.Value.ToString("MMM yyyy")
+                                    </p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-items" class="text-center py-12 hidden">
+            <i class="fas fa-images text-6xl text-gray-300 dark:text-gray-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-500 dark:text-gray-400 mb-2">No items found</h3>
+            <p class="text-gray-400 dark:text-gray-500">Try selecting a different category.</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center">
+                <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">15+</div>
+                <div class="text-gray-600 dark:text-gray-400">Projects</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">700+</div>
+                <div class="text-gray-600 dark:text-gray-400">Problems Solved</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">5+</div>
+                <div class="text-gray-600 dark:text-gray-400">Certificates</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">2+</div>
+                <div class="text-gray-600 dark:text-gray-400">Years Experience</div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-16 bg-gradient-to-r from-purple-600 to-blue-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-bold mb-4">Let's Build Something Amazing</h2>
+            <p class="text-purple-100 mb-6">Interested in collaborating on a project or discussing opportunities?</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:skt104.shujon@gmail.com" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Get In Touch
+                </a>
+                <a href="https://linkedin.com/in/shakhoyatshujon" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    <i class="fab fa-linkedin mr-2"></i>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+    <div class="relative max-w-4xl max-h-full">
+        <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="lightbox-content" class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<style>
+    .filter-btn {
+        @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400;
+    }
+    
+    .filter-btn.active {
+        @apply bg-purple-600 border-purple-600 text-white;
+    }
+    
+    .gallery-card {
+        cursor: pointer;
+        transform: translateY(0);
+    }
+    
+    .gallery-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .gallery-item {
+        transition: all 0.3s ease;
+    }
+    
+    .gallery-item.filtered-out {
+        display: none;
+    }
+</style>
+
+<script>
+    function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        const buttons = document.querySelectorAll('.filter-btn');
+        let visibleCount = 0;
+        
+        // Update active button
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-filter') === category) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Filter items
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (category === 'all' || itemCategory === category) {
+                item.classList.remove('filtered-out');
+                visibleCount++;
+            } else {
+                item.classList.add('filtered-out');
+            }
+        });
+        
+        // Toggle empty state
+        const emptyState = document.getElementById('no-items');
+        if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+        } else {
+            emptyState.classList.add('hidden');
+        }
+    }
+    
+    function openLightbox(title, description, imageUrl) {
+        const lightbox = document.getElementById('lightbox');
+        const content = document.getElementById('lightbox-content');
+        
+        content.innerHTML = `
+            <div class="p-6">
+                ${imageUrl ? `<img src="${imageUrl}" alt="${title}" class="w-full max-h-96 object-cover rounded-lg mb-4">` : ''}
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">${title}</h3>
+                <p class="text-gray-600 dark:text-gray-400">${description}</p>
+            </div>
+        `;
+        
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Add click handlers to gallery cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        
+        galleryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const item = this.closest('.gallery-item');
+                const title = item.getAttribute('data-title');
+                const description = item.getAttribute('data-description');
+                const img = item.querySelector('img');
+                const imageUrl = img ? img.src : null;
+                
+                openLightbox(title, description, imageUrl);
+            });
+        });
+        
+        // Close lightbox when clicking outside content
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+        
+        // Close lightbox with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    });
+</script>
