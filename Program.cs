@@ -25,6 +25,7 @@ builder.Services.AddScoped<IPortfolioService, PortfolioService>();
 builder.Services.AddScoped<IGeminiAIService, GeminiAIService>();
 builder.Services.AddScoped<IGitHubService, GitHubService>();
 builder.Services.AddScoped<IScholarService, ScholarService>();
+builder.Services.AddScoped<IKaggleService, KaggleService>();
 
 // Add HTTP Client for API calls
 builder.Services.AddHttpClient();

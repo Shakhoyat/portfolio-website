@@ -27,6 +27,10 @@ namespace PortfolioWebsite.Data
         public DbSet<JobDescription> JobDescriptions { get; set; }
         public DbSet<AISkillHighlight> AISkillHighlights { get; set; }
         public DbSet<ProjectRanking> ProjectRankings { get; set; }
+        
+        // Kaggle Integration
+        public DbSet<KaggleAchievement> KaggleAchievements { get; set; }
+        public DbSet<KaggleSync> KaggleSyncs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
