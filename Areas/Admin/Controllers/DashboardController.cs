@@ -75,24 +75,5 @@ namespace PortfolioWebsite.Areas.Admin.Controllers
             TempData["SuccessMessage"] = $"Processed {unprocessedFeedback.Count} feedback items with AI analysis.";
             return RedirectToAction(nameof(AIAnalytics));
         }
-
-        public class AdminDashboardViewModel
-        {
-            public int TotalProjects { get; set; }
-            public int TotalPublications { get; set; }
-            public int TotalAchievements { get; set; }
-            public int UnreadFeedback { get; set; }
-            public IEnumerable<VisitorFeedback> RecentFeedback { get; set; } = new List<VisitorFeedback>();
-            public IEnumerable<Project> RecentProjects { get; set; } = new List<Project>();
-        }
-
-        public class AIAnalyticsViewModel
-        {
-            public int TotalFeedback { get; set; }
-            public int PositiveFeedback { get; set; }
-            public int NegativeFeedback { get; set; }
-            public int NeutralFeedback { get; set; }
-            public List<VisitorFeedback> RecentFeedbackAnalysis { get; set; } = new List<VisitorFeedback>();
-        }
     }
 }
