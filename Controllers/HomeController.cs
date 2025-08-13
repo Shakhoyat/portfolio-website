@@ -185,6 +185,34 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Resume()
+    {
+        var viewModel = new AboutViewModel
+        {
+            PersonalInfo = await _portfolioService.GetPersonalInfoAsync(),
+            Educations = await _portfolioService.GetEducationsAsync(),
+            Experiences = await _portfolioService.GetExperiencesAsync(),
+            Skills = await _portfolioService.GetSkillsAsync()
+        };
+        return View(viewModel);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DownloadResume()
+    {
+        // For now, redirect to a hosted resume PDF
+        // In the future, you can generate PDF dynamically
+        var personalInfo = await _portfolioService.GetPersonalInfoAsync();
+        if (!string.IsNullOrEmpty(personalInfo?.ResumeUrl))
+        {
+            return Redirect(personalInfo.ResumeUrl);
+        }
+        
+        // Return a generated PDF or redirect to resume view for printing
+        return RedirectToAction("Resume");
+    }
+
     public IActionResult Privacy()
     {
         return View();
