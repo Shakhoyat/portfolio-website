@@ -1,0 +1,299 @@
+@{
+    ViewData["Title"] = "AI Job Mode - Skill Matching";
+}
+
+<!-- Header Section -->
+<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <i class="fas fa-brain text-6xl mb-4 text-blue-200"></i>
+                <h1 class="heading-xl mb-4">AI-Powered Job Matching</h1>
+                <p class="text-xl text-blue-100">
+                    Upload a job description and let AI analyze your skills and projects to show the best matches and areas for improvement.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Job Description Upload Section -->
+<section class="py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="card p-8">
+                <h2 class="heading-lg mb-6 text-gray-900 dark:text-white text-center">Upload Job Description</h2>
+                
+                <form id="jobAnalysisForm" class="space-y-6">
+                    <div>
+                        <label for="jobTitle" class="form-label">Job Title</label>
+                        <input type="text" id="jobTitle" name="jobTitle" class="form-input" 
+                               placeholder="e.g., Senior Machine Learning Engineer" required>
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="form-label">Company (Optional)</label>
+                        <input type="text" id="company" name="company" class="form-input" 
+                               placeholder="e.g., Google, Microsoft, OpenAI">
+                    </div>
+                    
+                    <div>
+                        <label for="jobDescription" class="form-label">Job Description</label>
+                        <textarea id="jobDescription" name="jobDescription" rows="10" class="form-textarea" 
+                                  placeholder="Paste the complete job description here..." required></textarea>
+                        <p class="text-sm text-gray-500 mt-2">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Include requirements, qualifications, and responsibilities for best results
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary" id="analyzeBtn">
+                            <i class="fas fa-magic mr-2"></i>
+                            Analyze with AI
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Section (Hidden by default) -->
+<section id="loadingSection" class="py-16 bg-gray-50 dark:bg-gray-900" style="display: none;">
+    <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="spinner inline-block w-12 h-12 mr-4"></div>
+            <h3 class="heading-md text-gray-900 dark:text-white mb-4">AI is analyzing your profile...</h3>
+            <p class="text-body">This may take a few moments as we process the job requirements and match them with your skills and projects.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section (Hidden by default) -->
+<section id="resultsSection" class="py-16" style="display: none;">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Overall Match Score -->
+            <div class="text-center mb-12">
+                <div class="card p-8 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20">
+                    <h2 class="heading-lg mb-4 text-gray-900 dark:text-white">Overall Match Score</h2>
+                    <div class="text-6xl font-bold text-green-600 dark:text-green-400 mb-2" id="matchScore">--</div>
+                    <p class="text-body" id="matchDescription">Loading analysis...</p>
+                </div>
+            </div>
+            
+            <!-- AI-Highlighted Skills -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                <div class="card p-6">
+                    <h3 class="heading-md mb-6 text-gray-900 dark:text-white flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                        Matching Skills
+                    </h3>
+                    <div id="matchingSkills" class="space-y-3">
+                        <!-- AI will populate this -->
+                    </div>
+                </div>
+                
+                <div class="card p-6">
+                    <h3 class="heading-md mb-6 text-gray-900 dark:text-white flex items-center">
+                        <i class="fas fa-exclamation-triangle text-yellow-600 mr-3"></i>
+                        Skills to Develop
+                    </h3>
+                    <div id="missingSkills" class="space-y-3">
+                        <!-- AI will populate this -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Rankings -->
+            <div class="card p-6 mb-12">
+                <h3 class="heading-md mb-6 text-gray-900 dark:text-white flex items-center">
+                    <i class="fas fa-trophy text-yellow-600 mr-3"></i>
+                    Most Relevant Projects
+                </h3>
+                <div id="rankedProjects" class="space-y-4">
+                    <!-- AI will populate this -->
+                </div>
+            </div>
+            
+            <!-- AI Recommendations -->
+            <div class="ai-highlight p-6">
+                <h3 class="heading-md mb-4 text-gray-900 dark:text-white flex items-center">
+                    <i class="fas fa-lightbulb text-purple-600 mr-3"></i>
+                    AI Recommendations
+                </h3>
+                <div id="aiRecommendations" class="text-body">
+                    <!-- AI will populate this -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Job Descriptions -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-lg mb-8 text-gray-900 dark:text-white text-center">Try Sample Job Descriptions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 cursor-pointer sample-job" 
+                     data-title="Senior ML Engineer" 
+                     data-company="Tech Corp"
+                     data-description="We are seeking a Senior Machine Learning Engineer to join our AI team. The ideal candidate will have 5+ years of experience in developing and deploying ML models at scale. Key requirements: Python, TensorFlow/PyTorch, AWS/GCP, Docker, Kubernetes, MLOps, deep learning, computer vision, and experience with production ML systems.">
+                    <h3 class="heading-md text-gray-900 dark:text-white mb-2">Senior ML Engineer</h3>
+                    <p class="text-sm text-gray-500 mb-3">Tech Corp • Remote</p>
+                    <p class="text-body">Sample ML engineering position focusing on production systems and deep learning.</p>
+                </div>
+                
+                <div class="card p-6 cursor-pointer sample-job"
+                     data-title="AI Research Scientist"
+                     data-company="Research Labs"
+                     data-description="We are looking for an AI Research Scientist to conduct cutting-edge research in natural language processing and large language models. Requirements: PhD in CS/AI, experience with transformers, BERT, GPT models, research publications, Python, PyTorch, distributed training, and strong mathematical background in machine learning.">
+                    <h3 class="heading-md text-gray-900 dark:text-white mb-2">AI Research Scientist</h3>
+                    <p class="text-sm text-gray-500 mb-3">Research Labs • Hybrid</p>
+                    <p class="text-body">Research-focused role in NLP and language model development.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('jobAnalysisForm');
+            const loadingSection = document.getElementById('loadingSection');
+            const resultsSection = document.getElementById('resultsSection');
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            
+            // Sample job description handlers
+            document.querySelectorAll('.sample-job').forEach(card => {
+                card.addEventListener('click', function() {
+                    document.getElementById('jobTitle').value = this.dataset.title;
+                    document.getElementById('company').value = this.dataset.company;
+                    document.getElementById('jobDescription').value = this.dataset.description;
+                    
+                    // Scroll to form
+                    form.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const jobData = {
+                    title: formData.get('jobTitle'),
+                    company: formData.get('company'),
+                    description: formData.get('jobDescription')
+                };
+                
+                // Show loading state
+                analyzeBtn.disabled = true;
+                analyzeBtn.innerHTML = '<span class="spinner mr-2"></span>Analyzing...';
+                loadingSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+                
+                loadingSection.scrollIntoView({ behavior: 'smooth' });
+                
+                try {
+                    const response = await fetch('/AIJobMode/AnalyzeJob', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(jobData)
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        displayResults(result);
+                    } else {
+                        throw new Error('Analysis failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    displayError();
+                } finally {
+                    // Reset button state
+                    analyzeBtn.disabled = false;
+                    analyzeBtn.innerHTML = '<i class="fas fa-magic mr-2"></i>Analyze with AI';
+                    loadingSection.style.display = 'none';
+                }
+            });
+            
+            function displayResults(data) {
+                // Overall match score
+                document.getElementById('matchScore').textContent = data.overallScore + '%';
+                document.getElementById('matchDescription').textContent = data.matchDescription;
+                
+                // Matching skills
+                const matchingSkillsContainer = document.getElementById('matchingSkills');
+                matchingSkillsContainer.innerHTML = '';
+                data.matchingSkills.forEach(skill => {
+                    const skillElement = document.createElement('div');
+                    skillElement.className = 'flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 rounded-lg';
+                    skillElement.innerHTML = `
+                        <span class="font-medium text-green-800 dark:text-green-200">${skill.name}</span>
+                        <span class="relevance-score relevance-${skill.relevance.toLowerCase()}">${skill.relevance}</span>
+                    `;
+                    matchingSkillsContainer.appendChild(skillElement);
+                });
+                
+                // Missing skills
+                const missingSkillsContainer = document.getElementById('missingSkills');
+                missingSkillsContainer.innerHTML = '';
+                data.missingSkills.forEach(skill => {
+                    const skillElement = document.createElement('div');
+                    skillElement.className = 'flex items-center justify-between p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg';
+                    skillElement.innerHTML = `
+                        <span class="font-medium text-yellow-800 dark:text-yellow-200">${skill.name}</span>
+                        <span class="text-sm text-yellow-600 dark:text-yellow-400">${skill.importance}</span>
+                    `;
+                    missingSkillsContainer.appendChild(skillElement);
+                });
+                
+                // Ranked projects
+                const rankedProjectsContainer = document.getElementById('rankedProjects');
+                rankedProjectsContainer.innerHTML = '';
+                data.rankedProjects.forEach((project, index) => {
+                    const projectElement = document.createElement('div');
+                    projectElement.className = 'flex items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg';
+                    projectElement.innerHTML = `
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                            ${index + 1}
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">${project.title}</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">${project.description}</p>
+                            <p class="text-xs text-blue-600 dark:text-blue-400 mt-1">Relevance: ${project.relevanceScore}%</p>
+                        </div>
+                    `;
+                    rankedProjectsContainer.appendChild(projectElement);
+                });
+                
+                // AI recommendations
+                document.getElementById('aiRecommendations').innerHTML = data.recommendations;
+                
+                // Show results
+                resultsSection.style.display = 'block';
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function displayError() {
+                resultsSection.innerHTML = `
+                    <div class="text-center py-16">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-6xl mb-4"></i>
+                        <h3 class="heading-md text-gray-900 dark:text-white mb-4">Analysis Failed</h3>
+                        <p class="text-body mb-6">We couldn't analyze the job description. Please try again or contact support.</p>
+                        <button onclick="location.reload()" class="btn-primary">Try Again</button>
+                    </div>
+                `;
+                resultsSection.style.display = 'block';
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+}
