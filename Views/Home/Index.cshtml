@@ -4,22 +4,25 @@
 }
 
 <!-- Hero Section -->
-<section class="hero-gradient text-white py-20">
+<section class="hero-gradient text-white py-20 hero-enhanced">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center">
             <div class="animate-fade-in-up">
-                <h1 class="heading-xl mb-6">
+                <h1 class="heading-xl mb-6 hero-title">
                     Hi, I'm <span class="text-yellow-300">@(Model.PersonalInfo?.FullName ?? "Your Name")</span>
                 </h1>
-                <p class="text-xl mb-8 text-gray-200">
+                <p class="text-xl mb-2 text-gray-200 hero-subtitle">
                     @(Model.PersonalInfo?.Title ?? "Your professional title")
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#portfolio" class="btn-primary">
+                <p class="text-lg mb-8 text-gray-300 typewriter">
+                    Full-Stack Developer
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
+                    <a href="#portfolio" class="btn-modern magnetic">
                         <i class="fas fa-rocket mr-2"></i>
                         Explore Projects
                     </a>
-                    <a href="@(Model.SocialLinks?.FirstOrDefault(s => s.Platform == "GitHub")?.Url ?? "#")" target="_blank" class="btn-outline">
+                    <a href="@(Model.SocialLinks?.FirstOrDefault(s => s.Platform == "GitHub")?.Url ?? "#")" target="_blank" class="btn-modern magnetic">
                         <i class="fab fa-github mr-2"></i>
                         View GitHub
                     </a>
@@ -30,6 +33,14 @@
     
     <!-- Three.js Canvas Container -->
     <div id="hero-canvas" class="absolute inset-0 pointer-events-none opacity-30"></div>
+    
+    <!-- Floating elements -->
+    <div class="absolute top-20 left-10 floating">
+        <div class="w-16 h-16 bg-yellow-400/20 rounded-full blur-xl"></div>
+    </div>
+    <div class="absolute bottom-20 right-10 floating" style="animation-delay: -2s;">
+        <div class="w-20 h-20 bg-blue-400/20 rounded-full blur-xl"></div>
+    </div>
 </section>
 
 <!-- AI Job Mode Banner -->
