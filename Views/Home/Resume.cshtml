@@ -406,10 +406,79 @@
     }
 </style>
 
+<!-- Include jsPDF and html2canvas for PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <script>
-    // Add download functionality
+    // PDF Download functionality
+    function downloadPDF() {
+        const button = event.target;
+        const originalText = button.innerHTML;
+        
+        // Show loading state
+        button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
+        button.disabled = true;
+        
+        // Get the resume content
+        const resumeContent = document.querySelector('.resume-content');
+        
+        // Configure html2canvas options for better quality
+        const options = {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            width: resumeContent.scrollWidth,
+            height: resumeContent.scrollHeight
+        };
+        
+        html2canvas(resumeContent, options).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            
+            // Create PDF
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            
+            // Calculate dimensions to fit A4
+            const imgWidth = 210; // A4 width in mm
+            const pageHeight = 297; // A4 height in mm
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let heightLeft = imgHeight;
+            
+            let position = 0;
+            
+            // Add first page
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+            
+            // Add additional pages if needed
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            
+            // Download the PDF
+            pdf.save('Shakhoyat_Shujon_Resume.pdf');
+            
+            // Reset button state
+            button.innerHTML = originalText;
+            button.disabled = false;
+            
+        }).catch(error => {
+            console.error('Error generating PDF:', error);
+            alert('Error generating PDF. Please try using the Print option instead.');
+            
+            // Reset button state
+            button.innerHTML = originalText;
+            button.disabled = false;
+        });
+    }
+    
+    // Add smooth scroll for print button
     document.addEventListener('DOMContentLoaded', function() {
-        // Add smooth scroll for print button
         const printBtn = document.querySelector('[onclick="window.print()"]');
         if (printBtn) {
             printBtn.addEventListener('click', function() {
