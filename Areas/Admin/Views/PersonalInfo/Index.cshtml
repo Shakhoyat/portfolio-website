@@ -1,0 +1,81 @@
+@model PersonalInfo
+@{
+    ViewData["Title"] = "Personal Information";
+    Layout = "_Layout";
+}
+
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Personal Information</h2>
+                <a asp-action="Edit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                    <i class="fas fa-edit mr-2"></i>Edit
+                </a>
+            </div>
+        </div>
+        
+        <div class="p-6">
+            @if (Model != null)
+            {
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic Information</h3>
+                        <dl class="space-y-3">
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Name</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Name</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Title</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Title</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Subtitle</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Subtitle</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Location</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Location</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Contact Information</h3>
+                        <dl class="space-y-3">
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Email</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Email</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Phone</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.Phone</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Resume URL</dt>
+                                <dd class="text-sm text-gray-900 dark:text-white">@Model.ResumeUrl</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Bio</h3>
+                    <p class="text-sm text-gray-900 dark:text-white whitespace-pre-wrap">@Model.Bio</p>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-12">
+                    <i class="fas fa-user text-4xl text-gray-400 mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">No Personal Information</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Set up your personal information to display on your portfolio.</p>
+                    <a asp-action="Edit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg">
+                        <i class="fas fa-plus mr-2"></i>Add Personal Information
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
