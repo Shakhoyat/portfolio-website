@@ -11,15 +11,30 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IPortfolioService _portfolioService;
+    private readonly IKaggleService _kaggleService;
+    private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger, IPortfolioService portfolioService)
+    public HomeController(
+        ILogger<HomeController> logger, 
+        IPortfolioService portfolioService,
+        IKaggleService kaggleService,
+        ApplicationDbContext context)
     {
         _logger = logger;
         _portfolioService = portfolioService;
+        _kaggleService = kaggleService;
+        _context = context;
     }
 
     public async Task<IActionResult> Index()
     {
+        // Get Kaggle achievements from database
+        var kaggleAchievements = await _context.KaggleAchievements
+            .Where(a => a.IsActive && a.IsFeatured)
+            .OrderByDescending(a => a.AchievedDate)
+            .Take(3)
+            .ToListAsync();
+
         var viewModel = new HomeViewModel
         {
             PersonalInfo = await _portfolioService.GetPersonalInfoAsync(),
@@ -27,7 +42,8 @@ public class HomeController : Controller
             Skills = await _portfolioService.GetSkillsAsync(),
             RecentPublications = (await _portfolioService.GetPublicationsAsync()).Take(3),
             SocialLinks = await _portfolioService.GetSocialLinksAsync(),
-            RecentAchievements = (await _portfolioService.GetAchievementsAsync()).Take(3)
+            RecentAchievements = (await _portfolioService.GetAchievementsAsync()).Take(3),
+            KaggleAchievements = kaggleAchievements
         };
 
         return View(viewModel);
