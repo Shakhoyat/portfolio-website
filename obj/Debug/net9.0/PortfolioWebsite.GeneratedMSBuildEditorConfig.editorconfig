@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS2FnZ2xlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/skt_pie/Documents/My Web Sites/portfolio-website/Areas/Admin/Views/Kaggle/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS2FnZ2xlXFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/skt_pie/Documents/My Web Sites/portfolio-website/Areas/Admin/Views/PersonalInfo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGVyc29uYWxJbmZvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

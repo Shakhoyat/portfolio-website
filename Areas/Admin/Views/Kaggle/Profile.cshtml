@@ -1,0 +1,258 @@
+@using PortfolioWebsite.Areas.Admin.Controllers
+@model KaggleProfileViewModel
+@{
+    ViewData["Title"] = "Kaggle Profile";
+}
+
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Kaggle Profile</h1>
+                <p class="text-gray-600 dark:text-gray-400">Your Kaggle profile overview and rankings</p>
+            </div>
+            <a asp-action="Index" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Management
+            </a>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-8 overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-8">
+                <div class="flex items-center space-x-6">
+                    <div class="flex-shrink-0">
+                        <img src="@Model.Profile.ProfileImageUrl" alt="Profile" class="w-20 h-20 rounded-full border-4 border-white shadow-lg">
+                    </div>
+                    <div class="text-white">
+                        <h2 class="text-2xl font-bold">@Model.Profile.DisplayName</h2>
+                        <p class="text-blue-100 mb-2">@@@Model.Profile.Username</p>
+                        <p class="text-blue-100 mb-2">@Model.Profile.Bio</p>
+                        <div class="flex items-center space-x-4 text-sm">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i>@Model.Profile.Location</span>
+                            <span><i class="fas fa-calendar mr-1"></i>Joined @Model.Profile.JoinDate.ToString("MMM yyyy")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="px-6 py-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">@Model.Profile.FollowersCount</p>
+                        <p class="text-sm text-gray-500">Followers</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">@Model.Profile.FollowingCount</p>
+                        <p class="text-sm text-gray-500">Following</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">@Model.Profile.CompetitionMedals.Total</p>
+                        <p class="text-sm text-gray-500">Competition Medals</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">@Model.Profile.DatasetMedals.Total</p>
+                        <p class="text-sm text-gray-500">Dataset Medals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rankings Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            
+            <!-- Competition Ranking -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Competition Ranking</h3>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium @Model.Rankings.CompetitionRanking.TierColor">
+                        <i class="@Model.Rankings.CompetitionRanking.TierIcon mr-1"></i>
+                        @Model.Rankings.CompetitionRanking.Tier
+                    </span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Current Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.CompetitionRanking.CurrentRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Highest Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.CompetitionRanking.HighestRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Points</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">@Model.Rankings.CompetitionRanking.Points</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-yellow-600">@Model.Profile.CompetitionMedals.Gold</p>
+                            <p class="text-xs text-gray-500">Gold</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-gray-500">@Model.Profile.CompetitionMedals.Silver</p>
+                            <p class="text-xs text-gray-500">Silver</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-orange-600">@Model.Profile.CompetitionMedals.Bronze</p>
+                            <p class="text-xs text-gray-500">Bronze</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dataset Ranking -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Dataset Ranking</h3>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium @Model.Rankings.DatasetRanking.TierColor">
+                        <i class="@Model.Rankings.DatasetRanking.TierIcon mr-1"></i>
+                        @Model.Rankings.DatasetRanking.Tier
+                    </span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Current Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.DatasetRanking.CurrentRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Highest Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.DatasetRanking.HighestRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Points</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">@Model.Rankings.DatasetRanking.Points</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-yellow-600">@Model.Profile.DatasetMedals.Gold</p>
+                            <p class="text-xs text-gray-500">Gold</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-gray-500">@Model.Profile.DatasetMedals.Silver</p>
+                            <p class="text-xs text-gray-500">Silver</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-orange-600">@Model.Profile.DatasetMedals.Bronze</p>
+                            <p class="text-xs text-gray-500">Bronze</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notebook Ranking -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Notebook Ranking</h3>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium @Model.Rankings.NotebookRanking.TierColor">
+                        <i class="@Model.Rankings.NotebookRanking.TierIcon mr-1"></i>
+                        @Model.Rankings.NotebookRanking.Tier
+                    </span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Current Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.NotebookRanking.CurrentRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Highest Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.NotebookRanking.HighestRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Points</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">@Model.Rankings.NotebookRanking.Points</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-yellow-600">@Model.Profile.NotebookMedals.Gold</p>
+                            <p class="text-xs text-gray-500">Gold</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-gray-500">@Model.Profile.NotebookMedals.Silver</p>
+                            <p class="text-xs text-gray-500">Silver</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-orange-600">@Model.Profile.NotebookMedals.Bronze</p>
+                            <p class="text-xs text-gray-500">Bronze</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discussion Ranking -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Discussion Ranking</h3>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium @Model.Rankings.DiscussionRanking.TierColor">
+                        <i class="@Model.Rankings.DiscussionRanking.TierIcon mr-1"></i>
+                        @Model.Rankings.DiscussionRanking.Tier
+                    </span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Current Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.DiscussionRanking.CurrentRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Highest Rank</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">#@Model.Rankings.DiscussionRanking.HighestRank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Points</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">@Model.Rankings.DiscussionRanking.Points</span>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-yellow-600">@Model.Profile.DiscussionMedals.Gold</p>
+                            <p class="text-xs text-gray-500">Gold</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-gray-500">@Model.Profile.DiscussionMedals.Silver</p>
+                            <p class="text-xs text-gray-500">Silver</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-orange-600">@Model.Profile.DiscussionMedals.Bronze</p>
+                            <p class="text-xs text-gray-500">Bronze</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overall Performance -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">Overall Performance Summary</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <i class="fas fa-trophy text-3xl text-yellow-500 mb-2"></i>
+                    <p class="text-2xl font-bold text-gray-900 dark:text-white">@(Model.Profile.CompetitionMedals.Total + Model.Profile.DatasetMedals.Total + Model.Profile.NotebookMedals.Total + Model.Profile.DiscussionMedals.Total)</p>
+                    <p class="text-sm text-gray-500">Total Medals</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <i class="fas fa-medal text-3xl text-yellow-500 mb-2"></i>
+                    <p class="text-2xl font-bold text-gray-900 dark:text-white">@(Model.Profile.CompetitionMedals.Gold + Model.Profile.DatasetMedals.Gold + Model.Profile.NotebookMedals.Gold + Model.Profile.DiscussionMedals.Gold)</p>
+                    <p class="text-sm text-gray-500">Gold Medals</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <i class="fas fa-star text-3xl text-blue-500 mb-2"></i>
+                    <p class="text-2xl font-bold text-gray-900 dark:text-white">@(Model.Rankings.CompetitionRanking.Points + Model.Rankings.DatasetRanking.Points + Model.Rankings.NotebookRanking.Points + Model.Rankings.DiscussionRanking.Points)</p>
+                    <p class="text-sm text-gray-500">Total Points</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <i class="fas fa-chart-line text-3xl text-green-500 mb-2"></i>
+                    <p class="text-2xl font-bold text-gray-900 dark:text-white">@Model.Profile.LastActive.ToString("MMM dd")</p>
+                    <p class="text-sm text-gray-500">Last Active</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,9 @@
-#nullable disable
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebsite.Models;
 using PortfolioWebsite.Services;
+using Microsoft.EntityFrameworkCore;
+using PortfolioWebsite.Data;
 
 namespace PortfolioWebsite.Controllers;
 
